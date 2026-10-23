@@ -1,0 +1,258 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Adapted for use at SRH Hochschule Heidelberg University by Ashish Chouhan (March 2020)
+% Updated to the SRH "Guidelines for Academic Writing, Scientific Papers & Theses"
+% (February 2022): layout, page order, page numbering and Harvard citations.
+%
+% Note:
+% Fill in your thesis details in the THESIS DETAILS section below.
+% Compile with pdfLaTeX (or XeLaTeX for real Arial) and Biber.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%                             -
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%                             -
+
+\documentclass[12pt]{Thesis} % SRH: 12 pt, A4, single-sided (set in Thesis.cls)
+
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{csquotes}
+% Harvard style (author, year, page) following the SRH guidelines, section 4.2:
+% "&" between two authors, "et al." for three or more, page numbers after the year.
+% Cite with page numbers:  \parencite[p.~146]{key} -> (Kramer, 1995, p. 146)
+%                          \textcite[p.~146]{key}  -> Kramer (1995, p. 146)
+\usepackage[style=authoryear, backend=biber, maxcitenames=2, mincitenames=1,
+  maxbibnames=99, giveninits=true, uniquename=false, uniquelist=false,
+  dashed=false, url=false, isbn=false, eprint=false, autopunct=false]{biblatex}
+\addbibresource{bibliography.bib}
+\DeclareNameAlias{sortname}{family-given}           % Barney, J.
+\DeclareDelimFormat{nameyeardelim}{\addcomma\space} % (Barney, 1991)
+\DeclareDelimFormat[bib,biblist]{nameyeardelim}{\addspace}
+\DeclareDelimFormat{finalnamedelim}{\addspace\&\space} % Teece & Pisano
+\DeclareFieldFormat[article]{title}{#1}             % article titles without quotes
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}} % 17(1)
+\DeclareFieldFormat{pages}{#1}                      % 99--120, no "pp."
+\DeclareFieldFormat{doi}{\url{https://doi.org/#1}}
+\renewcommand*{\bibpagespunct}{\addcomma\space}
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}\printfield{number}\setunit{\addcomma\space}\printfield{eid}}
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}\setunit*{\addcomma\space}%
+  \usebibmacro{volume+number+eid}\newunit}
+\urlstyle{same}
+\AtEveryCite{\color{JungleGreen}} % whole citation in colour, e.g. (Mikalef & Gupta, 2021)
+\setlength{\bibitemsep}{0.5\baselineskip} % half-line gap between bibliography entries
+\setlength{\bibhang}{1.25cm}             % hanging indent (SRH Guidelines 4.3.2: 1-1.5 cm)
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+% Neutral colour palette for figures
+\definecolor{nBlue}{HTML}{5B7B9A}   % slate blue (lines, bars)
+\definecolor{nBlueL}{HTML}{E3EAF1}  % light slate (main boxes)
+\definecolor{nSand}{HTML}{EFE8DC}   % sand (outcome / highlight boxes)
+\definecolor{nSage}{HTML}{DFE7DB}   % sage (secondary boxes)
+\definecolor{nLine}{HTML}{4A5560}   % dark slate (box outlines, arrows)
+\tikzset{every picture/.append style={draw=nLine, color=nLine, text=black}}
+\usepackage{graphics}
+% Source line under every figure and table (SRH Guidelines 4.2.10)
+\setlength{\emergencystretch}{2em} % fewer overfull lines in the bibliography
+\newcommand{\source}[1]{\par\smallskip{\footnotesize Source: #1}}
+\hypersetup{urlcolor=JungleGreen, colorlinks=true, citecolor=JungleGreen, linkcolor=black} % Colors hyperlinks in green - change to black if annoying
+\usepackage{lscape}
+%\usepackage{draftwatermark}
+\usepackage{adjustbox}
+\usepackage{tabularx}
+\usepackage{float}
+%\SetWatermarkScale{2}
+%\SetWatermarkColor{red}
+\usepackage{listings}
+\definecolor{light-gray}{gray}{0.99}
+\lstset{ language=python,% the language of the code
+  numbers=left,% where to put the line-numbers
+  numberstyle=\tiny\color{gray},% the style that is used for the line-numbers
+  stepnumber=1,  % the step between two line-numbers. If it's 1, each line
+   % will be numbered
+  numbersep=5pt,  % how far the line-numbers are from the code
+  backgroundcolor=\color{light-gray},% choose the background color
+  showspaces=false,% show spaces adding particular underscores
+  showstringspaces=false, % underline spaces within strings
+  showtabs=false, % show tabs within strings adding particular underscores
+  frame=single, % adds a frame around the code
+  rulecolor=\color{JungleGreen},% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,  % sets default tabsize to 2 spaces
+  captionpos=t, % sets the caption-position to top
+  breaklines=true, % sets automatic line breaking
+  breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+  title=\lstname, % show the filename of files included with \lstinputlisting;
+ % also try caption instead of title
+  keywordstyle=\color{RedViolet}, % keyword style
+  commentstyle=\color{JungleGreen}, % comment style
+  stringstyle=\color{orange}, % string literal style
+  escapeinside={\%*}{*)}, % if you want to add a comment within your code
+  aboveskip=0.4\baselineskip,
+  belowskip=0.65\baselineskip,
+  belowcaptionskip=10pt,
+  morekeywords={*,...}% if you want to add more keywords to the set
+}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{navy}{rgb}{0,0,128}
+\definecolor{antiquewhite}{rgb}{0.98, 0.92, 0.84}
+\usepackage{longtable}
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\setlength{\intextsep}{15pt}
+\setlength{\abovecaptionskip}{0.7\baselineskip}
+\setlength{\belowcaptionskip}{0pt}
+\captionsetup[figure]{position=top, skip=6pt} % figure captions above, source below
+\captionsetup[table]{position=top, skip=6pt}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+
+%======================================================
+%	THESIS DETAILS - fill these in
+%======================================================
+
+\thesistitle{From AI Capabilities to Sustainable Competitive Advantages: A Dynamic Capabilities Perspective in E-Commerce and Platform-Based Digital Business}
+\authors{Vishalini Kalsan James Alias Kannan}
+\matriculation{100004534}
+\authoremail{} % SRH asks for the author's contact information, e.g. your e-mail address
+\supervisor{Prof. Frank Braun}
+\examiner{} % Second examiner - leave empty to hide the line
+\degree{Master of Arts (M.A.) in International Business and Leadership}
+\university{SRH University of Applied Sciences Heidelberg}
+\department{} % School or faculty - leave empty to hide the line
+\submissiondate{\today} % Replace with the actual submission date, e.g. 15 January 2027
+\subject{}
+\keywords{artificial intelligence capability, dynamic capabilities, sustainable competitive advantage, e-commerce, digital platforms, structured literature review} % Keywords shown under the abstract and in the PDF properties
+
+\title{\ttitle}
+
+\begin{document}
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+% PDF meta-data
+\hypersetup{pdftitle={\ttitle}}
+\hypersetup{pdfsubject=\subjectname}
+\hypersetup{pdfauthor=\authornames}
+\hypersetup{pdfkeywords=\keywordnames}
+
+%    - Title Page (no page number)    -
+\maketitle
+
+%                             -
+%	CONFIDENTIALITY CLAUSE (only if needed - mark it on the title page too)
+%                             -
+
+%                             -
+%	ABSTRACT
+%                             -
+\begin{abstract}
+% DRAFT abstract: all figures come from the review in Chapter 4. Update it if
+% your checks of the included studies change any number or judgement.
+Artificial intelligence (AI) has become a standard tool in e-commerce and platform-based business, yet its wide availability raises the question of how it can create an advantage that competitors cannot easily copy. Drawing on the resource-based view and dynamic capabilities theory, this thesis proposes that AI capability leads to sustainable competitive advantage through the dynamic capabilities of sensing, seizing and transforming, and evaluates to what extent published empirical evidence supports six hypotheses derived from this model.
+
+A structured literature review was conducted. A search in OpenAlex identified 1,807 records, which were classified in two separate runs of a language model against explicit criteria (Cohen's kappa = 0.84 between runs). Of these, 120 studies were included, nine of them provisionally on the basis of their titles alone. Twenty of the 95 empirical studies could be appraised against nine quality criteria, and all results were classified with predefined decision rules.
+
+The findings can be stated at three levels. First, the literature suggests that AI is associated with organisational outcomes, mostly through complementary capabilities such as agility, innovation capability and organisational learning; in some of the appraised studies the direct association between AI and competitive advantage became small or non-significant once these capabilities were included, whereas in others it remained. Second, the evidence partly supports the view that AI capability contributes to competitive advantage through such capabilities: no hypothesis is supported, and all six are at most partly supported, on very different bases. The direct relationships (H1, H2) rest on several studies of mostly unknown quality, each dimension-specific mediation (H3 to H5) on a single indirectly relevant study, and the higher-order mediation (H6) on studies of related capabilities rather than of dynamic capabilities themselves. Third, the proposed mediation through sensing, seizing and transforming and the persistence of any advantage over time remain unconfirmed: no study estimates a dimension-specific indirect effect on competitive advantage, most studies are cross-sectional, the quality of most could not be assessed, and only four empirical studies concern e-commerce or platform-based business, one of them on complementors that sell through platforms.
+
+The thesis concludes that the existing evidence does not yet confirm the proposed mechanism for e-commerce and platform firms. Managers should therefore invest in the capabilities and governance surrounding AI rather than in the technology alone, and future research needs dimension-specific, longitudinal studies in this context.
+
+\bigskip
+\textbf{Keywords:} \keywordnames
+\end{abstract}
+
+%                             -
+%	ACKNOWLEDGEMENTS / FOREWORD (optional)
+%                             -
+% Acknowledgements are optional (SRH Guidelines 4.1.1). To add them, remove the
+% percent signs below and write your text inside the braces.
+% \acknowledgements{
+% }
+
+%                             -
+%	TABLE OF CONTENTS, ABBREVIATIONS, FIGURES, TABLES
+%	(SRH order: contents, abbreviations, figures, tables)
+%                             -
+
+\tableofcontents
+
+\listofsymbols{ll}{
+\textbf{AI} & Artificial Intelligence \\
+}
+
+\listoffigures
+
+\listoftables
+
+%                             -
+%	THESIS CONTENT - CHAPTERS (Arabic page numbers start here)
+%                             -
+
+\mainmatter
+
+\input{Chapters/Chapter1} % Introduction
+\input{Chapters/Chapter2} % Literature Review
+\input{Chapters/Chapter3} % Methodology
+\input{Chapters/Chapter4} % Analysis / Findings
+\input{Chapters/Chapter5} % Conclusion
+
+%                             -
+%	BIBLIOGRAPHY (Roman page numbers again, single-spaced, alphabetical)
+%                             -
+
+\backmatter
+
+\begingroup
+\singlespacing
+\printbibliography[heading=bibintoc, title={Bibliography}]
+\endgroup
+
+%                             -
+%	APPENDICES (refer to each appendix from the main text)
+%                             -
+
+\startappendices
+
+\input{Appendices/AppendixA}
+\input{Appendices/AppendixB}
+\input{Appendices/AppendixC}
+
+%                             -
+%	DECLARATION OF HONOR (very end, not in the contents)
+%	Check the wording against the official SRH form for your programme.
+%                             -
+
+\Declaration{
+I hereby declare that I have written this thesis independently and without
+outside help, that I have used no sources or aids other than those indicated,
+and that I have marked all passages taken literally or in substance from other
+works as such. This thesis has not been submitted in the same or a similar form
+to any other examination authority.
+
+The aids used include a large language model (Claude, Anthropic), which supported the screening of records, the extraction of data and its verification as described in Sections~\ref{sec:criteria} and~\ref{sec:quality}.
+% AUTHOR: Check this declaration against the official SRH form and the SRH rules on
+% AI use, and disclose any further AI assistance (for example in drafting or editing
+% the text) that is not described here. This sentence was added by the audit because
+% the original declaration did not mention the AI assistance reported in Chapter 3.
+
+\vspace{2cm}
+
+\rule{20em}{0.5pt}\\
+Place, Date
+
+\vspace{1.5cm}
+
+\rule{20em}{0.5pt}\\
+\authornames
+}
+
+\end{document}

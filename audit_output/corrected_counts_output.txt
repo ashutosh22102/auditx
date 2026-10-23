@@ -1,0 +1,39 @@
+publications                     120
+independent_publications         119
+empirical                        95
+independent_empirical_samples    94
+conceptual                       25
+title_only                       9
+access_included                  {'full text': 28, 'abstract': 83, 'title only': 9}
+quality_empirical                {'not assessable': 75, 'moderate': 8, 'low': 9, 'high': 3}
+appraised                        20
+high_moderate                    11
+not_assessable_breakdown         {'full text, insufficient reporting': 1, 'title only': 8, 'abstract only': 66}
+tier1_quality                    {'moderate': 3, 'low': 1, 'not assessable': 18}
+Q2_met_appraised                 3
+Q4_met_appraised                 10
+Q5_met_appraised                 2
+Q6_met_appraised                 10
+Q7_met_appraised                 2
+H1                               {'indirectly relevant': 44, 'directly reported': 9, 'contradictory': 3}
+H2                               {'indirectly relevant': 42, 'directly reported': 3, 'contradictory': 1}
+H3                               {'indirectly relevant': 1}
+H4                               {'indirectly relevant': 1}
+H5                               {'indirectly relevant': 1}
+H6                               {'indirectly relevant': 51, 'contradictory': 1}
+H1_direct_robust                 ['kim2026', 'shao2026', 'tu2026']
+sens_H1_direct_in_appraised      ['Firmansyah']
+sens_H1_indirect_in_HM           7
+sens_H1_contra_in_HM             1
+sens_H2_any_in_appraised         12
+sens_H2_any_in_HM                8
+sens_H2_direct_in_appraised      0
+hm_list                          ['Adamu 2026 (moderate)', 'Deng 2025 (moderate)', 'Dzreke 2025 (moderate)', 'Guo 2025 (high)', 'Li 2026 (moderate)', 'Malik 2021 (moderate)', 'Noor 2026 (moderate)', 'Quoc 2026 (moderate)', 'Srahin 2026 (moderate)', 'Texeira 2026 (high)', 'Wang 2026 (high)']
+dc_higher_order                  0
+focal_context                    {'other_ecommerce_digital': 3, 'complementor': 1, 'ecommerce_retailer': 2, 'platform_owner': 1}
+years                            {2021: 1, 2022: 3, 2023: 4, 2024: 18, 2025: 37, 2026: 57}
+country_not_reported_empirical   30
+n_reported                       80
+median_n                         311.5
+
+changes: 3 | title-only: 9

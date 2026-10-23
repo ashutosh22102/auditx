@@ -1,0 +1,10 @@
+{
+ "counts": {
+  "backward": 527,
+  "forward": 476
+ },
+ "unique": 826,
+ "new": 678,
+ "filter_relaxed": "(\"artificial intelligence\" OR \"machine learning\" OR \"AI\") AND ((capability OR capabilities OR sensing OR seizing OR reconfiguring OR reconfiguration) OR (\"competitive advantage\" OR \"competitive advantages\" OR \"firm performance\" OR \"organizational performance\" OR \"organisational performance\" OR \"competitive performance\"))",
+ "date": "2026-10-22"
+}

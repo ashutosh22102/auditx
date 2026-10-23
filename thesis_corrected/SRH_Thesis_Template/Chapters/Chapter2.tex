@@ -1,0 +1,349 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 2 - LITERATURE REVIEW
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DRAFT. Before submission:
+%  - Read each cited paper and add page numbers to the citations
+%    (SRH Guidelines 4.2.1), e.g. \parencite[p.~105]{barney1991}.
+%  - Rewrite the text in your own words and check every claim against the source.
+%  - Claims about Sahoo et al. (2024), Li et al. (2025), Wong & Ngai (2025),
+%    Hossain et al. (2022) and Moser et al. (2024) are limited to what their
+%    titles state, because no abstract was available. Read these papers and
+%    extend or correct the text.
+
+\chapter{Literature Review}
+\label{ch:litreview}
+
+This chapter reviews the literature on which the thesis builds. Section~\ref{sec:theory} introduces the resource-based view and dynamic capabilities theory. Section~\ref{sec:constructs} defines the key constructs, and Section~\ref{sec:context} examines the platform context and the empirical evidence on AI capability. Section~\ref{sec:gapmodel} identifies the research gap and develops the conceptual model and hypotheses, and Section~\ref{sec:ch2summary} summarises the chapter.
+
+% ------------------------------------------------------------
+\section{Theoretical Foundations}
+\label{sec:theory}
+
+Two theoretical perspectives are combined in this thesis because each answers a different part of the research question. The resource-based view explains which resources can give a firm an advantage that competitors cannot easily copy, but it says little about how such resources are created and renewed when markets change. Dynamic capabilities theory addresses precisely this question: it explains how firms sense changes in their environment, seize the resulting opportunities and transform their resource base. For AI, both questions matter. AI can be treated as a resource whose value depends on how difficult it is to imitate, and at the same time as an enabler of the processes through which firms adapt. The following subsections introduce the two perspectives and their limitations.
+
+\subsection{Resource-Based View}
+\label{sec:rbv}
+
+The resource-based view (RBV) explains differences in firm performance by differences in the resources that firms control. \textcite{barney1991} builds this argument on two assumptions: strategic resources are distributed heterogeneously across firms, and these differences remain stable over time. A resource can then contribute to a sustained competitive advantage if it is valuable, rare, imperfectly imitable and non-substitutable, the four criteria commonly abbreviated as VRIN. \textcite{peteraf1993} refines this logic by specifying four conditions that must all be met: superior resources, ex post limits to competition, imperfect resource mobility and ex ante limits to competition. Both contributions share a central point: an advantage is sustainable only if competitors cannot easily obtain or copy the resources on which it rests.
+
+Applied to AI, the RBV suggests that AI technology alone is unlikely to meet these criteria. Algorithms, cloud infrastructure and pre-trained models are widely available, which makes them valuable but rarely rare or difficult to imitate. Research has therefore shifted from AI technology to AI capability, understood as a firm-specific bundle of tangible, human and intangible AI-related resources \parencite{mikalef2021ai}. Subsequent studies model this capability as a higher-order construct and identify AI infrastructure as a particularly important resource within it \parencite{fossowamba2024}. Figure~\ref{fig:vrin} applies the VRIN criteria to such AI-related resources. It illustrates that the criteria are most likely to be met not by single technologies but by combinations of proprietary data, specialised skills and organisational routines, which are path-dependent and therefore hard to copy.
+
+\begin{figure}[htbp]
+\centering
+\caption{VRIN criteria applied to AI-related resources}
+\label{fig:vrin}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  res/.style={draw, rounded corners=2pt, fill=nSand, text width=3.6cm, minimum height=1.0cm, align=left, inner sep=4pt},
+  crit/.style={draw, fill=nSage, text width=2.4cm, minimum height=1.0cm, align=center, font=\footnotesize\bfseries},
+  ex/.style={text width=4.6cm, align=left, font=\scriptsize},
+  outc/.style={draw, thick, rounded corners=3pt, fill=nSand, text width=2.4cm, minimum height=1.4cm, align=center, font=\footnotesize\bfseries},
+  arr/.style={-{Stealth[length=2.2mm]}, thick}]
+  % AI-related resources
+  \node[res] (r1) {\textbf{Tangible}\\ data, infrastructure, technology};
+  \node[res, below=0.35cm of r1] (r2) {\textbf{Human}\\ technical and business AI skills};
+  \node[res, below=0.35cm of r2] (r3) {\textbf{Intangible}\\ coordination, change capacity, data-driven culture};
+  \node[above=0.15cm of r1, font=\footnotesize\bfseries] {AI-related resources};
+  % VRIN criteria
+  \node[crit, right=1.2cm of r1, yshift=0.65cm] (v) {Valuable};
+  \node[crit, below=0.25cm of v] (r) {Rare};
+  \node[crit, below=0.25cm of r] (i) {Imperfectly imitable};
+  \node[crit, below=0.25cm of i] (n) {Non-substitutable};
+  \node[above=0.15cm of v, font=\footnotesize\bfseries] {VRIN criteria};
+  % Examples
+  \node[ex, right=0.25cm of v] {improves personalisation, forecasting or pricing};
+  \node[ex, right=0.25cm of r] {proprietary customer and transaction data};
+  \node[ex, right=0.25cm of i] {path-dependent data, skills and routines; AI \enquote{situated} in the firm};
+  \node[ex, right=0.25cm of n] {no generic tool delivers the same combined capability};
+  % Outcome
+  \node[outc, below=0.7cm of n, xshift=1.1cm] (sca) {Sustainable competitive advantage};
+  \node[draw, dashed, fit=(v)(r)(i)(n), inner sep=5pt] (box) {};
+  \draw[arr] (r1.east) -- (r1.east -| box.west);
+  \draw[arr] (r2.east) -- (r2.east -| box.west);
+  \draw[arr] (r3.east) -- (r3.east -| box.west);
+  \draw[arr] (box.south) -- ++(0,-0.15) -| (sca.north);
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work, adapted from \textcite{barney1991} and \textcite{mikalef2021ai}.}
+\end{figure}
+
+The RBV has, however, been criticised for treating resources as relatively static. \textcite{eisenhardt2000} argue that the traditional RBV misidentifies the source of long-term advantage in dynamic markets and reaches a boundary condition in high-velocity markets, where advantages are temporary. This criticism is particularly relevant for AI. \textcite{krakowski2023} show that AI adoption can make established capabilities obsolete while new sources of heterogeneity emerge at the intersection of human and machine decision making. A resource that satisfies the VRIN criteria today may therefore lose its value quickly once AI changes the basis of competition. This limitation motivates the second theoretical perspective of the thesis.
+
+\subsection{Dynamic Capabilities Theory}
+\label{sec:dctheory}
+
+Dynamic capabilities theory addresses how firms create and maintain advantages in environments of rapid technological change. \textcite{teece1997} locate competitive advantage in distinctive organisational processes, shaped by the firm's asset positions and the paths it has followed, and argue that the ease of imitation and replication determines whether an advantage erodes. \textcite{teece2007} later specifies dynamic capabilities as the capacities to sense opportunities and threats, to seize them and to reconfigure the firm's tangible and intangible assets. These capacities rest on micro-foundations, the distinct skills, processes, organisational structures and decision rules that are difficult to develop and deploy. Figure~\ref{fig:dc} summarises this framework.
+
+\begin{figure}[htbp]
+\centering
+\caption{Dynamic capabilities framework}
+\label{fig:dc}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  dc/.style={draw, thick, rounded corners=3pt, fill=nBlueL, text width=3.4cm, minimum height=2.3cm, align=center},
+  arr/.style={-{Stealth[length=2.2mm]}, thick}]
+  \node[dc] (s) {\textbf{Sensing}\\[2pt] scanning the market, interpreting customer and technology change, identifying opportunities};
+  \node[dc, right=0.9cm of s] (z) {\textbf{Seizing}\\[2pt] designing business models, making investment decisions, mobilising resources};
+  \node[dc, right=0.9cm of z] (t) {\textbf{Transforming}\\[2pt] reconfiguring assets, processes and structures; strategic renewal};
+  \draw[arr] (s) -- (z);
+  \draw[arr] (z) -- (t);
+  \draw[arr] (t.south) -- ++(0,-0.5) -| (s.south) node[pos=0.25, above, font=\scriptsize] {continuous renewal};
+  \node[draw, dashed, rounded corners=4pt, fit=(s)(z)(t), inner sep=14pt, label={[font=\footnotesize\bfseries]above:Dynamic capabilities (supported by micro-foundations)}] (box) {};
+  \node[below=0.9cm of box, draw, fill=nSand, rounded corners=3pt, text width=5cm, align=center, minimum height=0.9cm, font=\footnotesize\bfseries] (out) {Long-run enterprise performance and competitive advantage};
+  \draw[arr] (box.south) ++(0,-0.02) -- (out.north);
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work, adapted from \textcite{teece2007}.}
+\end{figure}
+
+The theory is not without tension. \textcite{eisenhardt2000} describe dynamic capabilities as specific, identifiable processes, such as product development or strategic decision making, that show considerable commonalities across firms and resemble \enquote{best practice}. If dynamic capabilities are more homogeneous and substitutable than often assumed, they cannot by themselves explain a lasting advantage; the advantage must lie in the resource configurations they produce. This argument is important for the present thesis, because it implies that sensing, seizing and transforming should be examined as mechanisms that convert AI capability into an advantage rather than as advantages in their own right.
+
+Two extensions of the theory are directly relevant to digital and platform-based business. \textcite{helfat2018} argue that platform leaders need at least three types of dynamic capabilities, namely innovation capabilities, environmental scanning and sensing capabilities, and integrative capabilities for orchestrating the ecosystem, and that integrative capabilities are central to capturing value. \textcite{warner2019} show in a qualitative study of incumbent firms that dynamic capabilities for digital transformation are built through an ongoing process with nine micro-foundations, in which agility is the core mechanism for renewing the business model, the collaborative approach and the culture. Both contributions suggest that in digital settings the transforming dimension is not a one-off adjustment but a continuous activity, which is reflected in the feedback loop in Figure~\ref{fig:dc}.
+
+% ------------------------------------------------------------
+\section{Key Constructs}
+\label{sec:constructs}
+
+Several constructs in this field are used inconsistently, and the comparison of studies in Chapter~\ref{ch:analysis} depends on distinguishing them precisely. Table~\ref{tab:constructs} therefore sets out the working definitions used in this thesis. The following subsections explain and justify these definitions.
+
+\begin{table}[htbp]
+\centering
+\caption{Definitions of key constructs}
+\label{tab:constructs}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.1cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.2cm}|}
+\hline
+\textbf{Construct} & \textbf{Working definition in this thesis} & \textbf{Based on} \\
+\hline
+AI adoption & The decision to introduce AI technologies into the organisation & \textcite{chatterjee2021} \\ \hline
+AI integration / assimilation & The degree to which AI is embedded in business processes and routines & \textcite{fossowamba2022}; \textcite{selgascors2026} \\ \hline
+AI capability & A firm's ability to select, combine and deploy AI-specific tangible, human and intangible resources & \textcite{mikalef2021ai}; \textcite{fossowamba2024} \\ \hline
+Dynamic capabilities & Capacities to sense, seize and transform in response to environmental change, treated as a higher-order construct & \textcite{teece1997}; \textcite{teece2007} \\ \hline
+Sensing & Identifying and interpreting opportunities and threats in markets and technologies & \textcite{teece2007} \\ \hline
+Seizing & Mobilising resources and making decisions to capture identified opportunities & \textcite{teece2007} \\ \hline
+Transforming & Reconfiguring assets, processes and the business model & \textcite{teece2007}; \textcite{warner2019} \\ \hline
+Sustainable competitive advantage & An advantage over competitors that persists over time and resists imitation & \textcite{barney1991}; \textcite{peteraf1993} \\
+\hline
+\end{tabularx}
+\source{author's own work.}
+\end{table}
+
+\subsection{AI Capability}
+\label{sec:aicap}
+
+AI itself is a moving target. \textcite{berente2021} describe it as the frontier of computational advancements that reference human intelligence, and argue that managing AI requires decisions about three interdependent facets: autonomy, learning and inscrutability. \textcite{huang2021} distinguish mechanical AI for automating repetitive tasks, thinking AI for processing data to reach decisions, and feeling AI for analysing interactions and emotions. \textcite{raisch2021} add that automation, in which machines take over a task, and augmentation, in which humans and machines collaborate, cannot be neatly separated and create a paradoxical tension. Because the technology changes so quickly, a definition of AI capability that rests on specific technologies would soon be outdated. This is one reason why the literature defines AI capability in terms of organisational resources rather than tools.
+
+A clear distinction between adoption, integration and capability follows from this (Table~\ref{tab:constructs}). Adoption studies explain why firms decide to introduce AI \parencite{chatterjee2021}, whereas integration or assimilation studies examine how far AI is embedded in operations \parencite{fossowamba2022}. AI capability goes further and describes the firm's ability to mobilise AI-related resources in combination. \textcite{mikalef2021ai} develop and validate a measurement instrument for this capability, and \textcite{chen2022} model it as a higher-order construct formed by basic resources, proclivity and skills. Qualitative research identifies the organisational capabilities that AI implementation requires, namely AI project planning, co-development, data management and AI model lifecycle management, which help firms to cope with the inscrutability and data dependency of AI \parencite{weber2023}.
+
+These definitions are similar but not identical, and their differences matter for the present thesis. \textcite{shao2026} distinguish tangible, intangible and skill resources and interpret AI capability as a dynamic capability in its own right. This interpretation conflicts with the RBV-based view, in which AI capability is a resource bundle on which dynamic capabilities act. If AI capability were itself a dynamic capability, the proposed mediation through sensing, seizing and transforming would partly overlap with the independent variable. This thesis follows the resource-based definition of \textcite{mikalef2021ai}, because it keeps the two constructs analytically separate and allows the mediating role of dynamic capabilities to be examined.
+
+\subsection{Sensing, Seizing and Transforming}
+\label{sec:ssr}
+
+Sensing, seizing and transforming describe different organisational activities, and AI can support each of them in different ways. Table~\ref{tab:dcai} summarises the three dimensions, the role AI may play in each and illustrative applications in e-commerce and platform-based business.
+
+\begin{table}[htbp]
+\centering
+\caption{Dimensions of dynamic capabilities and the role of AI in e-commerce}
+\label{tab:dcai}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.15cm}|>{\raggedright\arraybackslash}p{3.1cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.9cm}|}
+\hline
+\textbf{Dimension} & \textbf{Definition} & \textbf{Possible role of AI and illustrative e-commerce applications} & \textbf{Supporting literature} \\
+\hline
+Sensing & Identifying and interpreting opportunities and threats & Thinking AI for market analysis and feeling AI for customer understanding; e.g.\ demand forecasting, analysis of reviews and search behaviour, monitoring competitor prices & \textcite{teece2007}; \textcite{huang2021}; \textcite{mikalef2021b2b} \\ \hline
+Seizing & Mobilising resources and taking decisions to capture opportunities & Faster and better-informed decisions; e.g.\ dynamic pricing, personalised recommendations, rapid assortment and promotion decisions & \textcite{teece2007}; \textcite{neiroukh2025}; \textcite{chen2022} \\ \hline
+Transforming & Reconfiguring assets, processes and the business model & Process reconfiguration and business model innovation; e.g.\ automated fulfilment and service processes, new data-driven services & \textcite{teece2007}; \textcite{wambataguimdje2020}; \textcite{sjodin2021} \\
+\hline
+\end{tabularx}
+\source{author's own work, based on the literature listed in the table; the e-commerce applications are illustrative.}
+\end{table}
+
+For sensing, AI promises to widen and speed up the firm's view of its environment. In the marketing domain, thinking AI can support market analysis and feeling AI customer understanding \parencite{huang2021}. Case evidence identifies AI-specific micro-foundations of dynamic capabilities that help organisations to operate in dynamic and uncertain environments \parencite{mikalef2021b2b}, and survey evidence from 317 small and medium-sized enterprises (SMEs) in London shows that AI applications for targeting consumers online and forecasting cash flows were associated with reduced business risks during the COVID-19 pandemic \parencite{drydakis2022}. In e-commerce, where customer behaviour leaves extensive digital traces, the potential contribution of AI to sensing is particularly large.
+
+For seizing, the main contribution of AI lies in decision making. A survey of 230 organisations finds that AI capability is positively related to both the speed and the quality of decisions, and that decision speed partly mediates the relationship with organisational performance \parencite{neiroukh2025}. In e-commerce firms, AI-driven decision making has been identified as one of the paths through which AI capability affects firm performance \parencite{chen2022}. A strategic review similarly lists decision support, automation and new products and services among the main sources of value creation from AI \parencite{borges2021}. Faster decisions are, however, not necessarily better decisions: \textcite{rana2022} show that opaque AI-based analytics can lead to suboptimal decisions and, ultimately, to competitive disadvantage.
+
+For transforming, AI matters because value appears to depend on reconfiguration. Organisations achieve performance gains from AI only when they use it to reconfigure their processes \parencite{wambataguimdje2020}, and manufacturers scale AI by innovating their business models through customer co-creation, data-driven delivery and ecosystem integration \parencite{sjodin2021}. Business model innovation also mediates the relationship between AI capability and competitive advantage in Chinese SMEs \parencite{shao2026}. These findings suggest that transforming may be the dimension through which AI has its most lasting effect. They also illustrate a measurement problem: business model innovation and process reconfiguration are related to transforming, but they are not the same construct, and studies rarely state how their mediators map onto the three dimensions.
+
+\subsection{Sustainable Competitive Advantage}
+\label{sec:sca}
+
+The dependent variable requires particular care. In the RBV tradition, a competitive advantage is sustained when it persists despite competitors' attempts to imitate it, not merely when it lasts for a certain period \parencite{barney1991}. \textcite{peteraf1993} add that limits to competition must exist both before and after the firm obtains its superior position. \textcite{teece2007} links dynamic capabilities to superior long-run enterprise performance and refers to it as sustainable performance. All three contributions describe the persistence of an advantage relative to competitors, which is the meaning adopted in this thesis.
+
+Two other uses of the term must be distinguished from this meaning. First, \enquote{sustainable} increasingly appears in an environmental sense; \textcite{fossowamba2024}, for instance, examine AI capability and firm performance from a sustainable development perspective. Second, many studies measure firm performance or productivity and interpret it as competitive advantage. This substitution is problematic. \textcite{brynjolfsson2021} show that general-purpose technologies such as AI require large intangible complementary investments, which can cause productivity to be underestimated in early years and overestimated later. A performance measure taken at a single point in time may therefore say little about whether an AI-based advantage persists. For this reason, the analysis in Chapter~\ref{ch:analysis} records separately whether a study measures performance, competitive advantage or the persistence of that advantage.
+
+% ------------------------------------------------------------
+\section{AI in E-Commerce and Platform Businesses}
+\label{sec:context}
+
+The general theories introduced above do not specify how AI creates value in a particular industry. E-commerce and platform-based businesses are a distinctive setting for this question, because their operations generate large amounts of data on customer behaviour and their core processes, such as search, recommendation and pricing, are already digital. AI can therefore be embedded more directly into everyday operations than in many traditional industries, while competitors can often acquire similar tools just as quickly. This combination of high potential and low barriers to imitation makes the context particularly suitable for examining whether AI leads to a lasting advantage. The following subsections first describe the characteristics of platform-based business and then review the empirical evidence on AI capability.
+
+\subsection{Characteristics of Platform-Based Business}
+\label{sec:platforms}
+
+Platform-based businesses differ from traditional firms in ways that affect how AI can create an advantage. Platforms facilitate transactions and govern interactions between two or more distinct user groups who are connected through indirect network effects. A systematic review of 333 articles on platform competition identifies four recurring themes: network effects that create winner-takes-all dynamics, the interaction between platform strategy and corporate decisions such as vertical integration, the role of heterogeneity among platforms and users, and the orchestration of value creation and capture in the wider ecosystem \parencite{rietveld2021}. The value of a platform depends not only on its size but also on its distinctive technological and market identity, so that competition in digital markets departs from the predictions of mainstream competitive theory \parencite{cennamo2021}. Platforms are, moreover, embedded in ecosystems of complementors whose activities depend on one another and which cannot be fully controlled through hierarchy \parencite{jacobides2018}.
+
+AI adds a further source of value to this setting. With data network effects, a platform becomes more valuable to each user the more it learns from the data it collects \parencite{gregory2021}, and machine learning can extend the lock-in effects of a business model beyond direct and indirect network effects \parencite{haftor2021}. This mechanism would favour large incumbents and could make AI-based advantages self-reinforcing. The effect is, however, conditional. The same authors propose that platform legitimation, data stewardship and user-centric design moderate the link between AI capability and user value. A two-wave survey of 220 users of tourism platforms confirms that AI capability can raise perceived user value through a user-centric design experience, but can also lower it by increasing perceived privacy risk; data stewardship strengthened both effects \parencite{yu2026}. AI capability on platforms can therefore work in two directions at once.
+
+These characteristics shape what sensing, seizing and transforming mean for platform firms. \textcite{helfat2018} emphasise integrative capabilities for orchestrating the ecosystem, which go beyond the internal reconfiguration on which most dynamic capabilities research focuses. Platform owners also differ from e-commerce retailers, which sell products themselves, and from complementors, which depend on the platform's data and rules. Evidence from one of these groups can therefore not simply be transferred to another, which is why this thesis focuses on retailers and platform owners and treats evidence from complementors as closely related but distinct (Section~\ref{sec:scope}).
+
+\subsection{Empirical Evidence on AI Capability}
+\label{sec:evidence}
+
+Empirical research on AI capability has grown rapidly since 2020, and Table~\ref{tab:studies} summarises the studies that are most relevant to the proposed relationships. Four strands can be distinguished. The first strand links AI capability to firm performance. AI capability has been associated with organisational creativity and performance \parencite{mikalef2021ai}, with performance in e-commerce firms through creativity, AI management and AI-driven decision making \parencite{chen2022}, and with performance through decision speed \parencite{neiroukh2025}. Further studies relate AI capability to performance through a data-driven culture \parencite{fossowamba2024}, link AI capabilities with open innovation and business performance in multinational business-to-business firms \parencite{sahoo2024}, and show that coupling AI capability with strategic agility supports product and service creativity in Chinese organisations \parencite{ameen2024}. Not all effects are positive: in 168 European municipalities, AI capabilities improved process automation and cognitive insight, but cognitive engagement had a negative effect on organisational performance \parencite{mikalef2023public}.
+
+The second strand examines dynamic capabilities as a mediator. Research on big data analytics provides an important precedent: the effect of big data analytics capability on competitive performance in 202 Norwegian firms was not direct but fully mediated by dynamic capabilities \parencite{mikalef2020}. Studies of AI report similar patterns. AI capability has been found to be positively associated with dynamic capabilities, which are in turn associated with organisational creativity and performance \parencite{almheiri2024, almheiri2025}. Dynamic capabilities also mediate the relationship between AI and supply chain resilience in SMEs \parencite{le2024}, and in a survey of 487 SME managers and owners, AI applications and dynamic capabilities both acted as mediators between environmental turbulence and firm performance \parencite{aldhaheri2024}. Using archival data from Chinese listed firms and 511 paired questionnaires, \textcite{gao2025} show that AI use affects innovation capability through digital adaptability and market perception. Further work examines the role of dynamic capabilities in the relationship between AI and operational performance \parencite{wong2025}.
+
+The third strand addresses competitive advantage directly. In 546 Chinese SMEs, AI capability was positively associated with competitive advantage, with business model innovation acting as a mediator \parencite{shao2026}, and in a cross-industry study of Spanish organisations, AI-enabled dynamic capabilities carried an overall indirect effect on competitive advantage \parencite{selgascors2026}. Other studies relate marketing analytics capability and AI adoption to competitive advantage in manufacturing \parencite{hossain2022} and examine how generative AI capabilities contribute to competitive advantage through service innovation under environmental dynamism \parencite{li2025}. In manufacturing, AI capabilities have also been linked to servitization, with absorptive capacity strengthening the relationship \parencite{aboufoul2023}. The fourth strand is conceptual. \textcite{kemp2024} argues that AI must be situated in the firm to produce an advantage, and \textcite{moser2024} respond that situatedness must be taken even more seriously when theorising about AI-based competitive advantage.
+
+{\singlespacing
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.3cm}|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}p{2.0cm}|>{\raggedright\arraybackslash}p{2.1cm}|>{\raggedright\arraybackslash}p{2.35cm}|}
+\caption{Comparison of key prior studies}
+\label{tab:studies} \\
+\hline
+\textbf{Study} & \textbf{Context and sample} & \textbf{Design} & \textbf{AI construct} & \textbf{Mediator(s)} & \textbf{Outcome} \\
+\hline
+\endfirsthead
+\multicolumn{6}{|l|}{\footnotesize\textit{Table~\ref{tab:studies} continued}} \\
+\hline
+\textbf{Study} & \textbf{Context and sample} & \textbf{Design} & \textbf{AI construct} & \textbf{Mediator(s)} & \textbf{Outcome} \\
+\hline
+\endhead
+\endfoot
+\textcite{mikalef2020} & 202 Norwegian firms (CIOs, IT managers) & Survey, PLS-SEM & Big data analytics capability & Dynamic capabilities; marketing and technological capabilities & Competitive performance \\ \hline
+\textcite{chen2022} & 394 e-commerce firms & Survey, PLS-SEM & AI capability (higher-order) & Creativity; AI management; AI-driven decisions & Firm performance \\ \hline
+\textcite{drydakis2022} & 317 SMEs, London & Survey with follow-up & AI applications & -- & Business risks (COVID-19) \\ \hline
+\textcite{mikalef2023} & 155 European firms & Survey, PLS-SEM & AI competencies & B2B marketing capabilities & Organisational performance \\ \hline
+\textcite{mikalef2023public} & 168 municipalities (NO, DE, FI) & Survey, SEM & AI capabilities & Automation; insight; engagement & Organisational performance \\ \hline
+\textcite{aboufoul2023} & 185 manufacturers (US, EU) & Survey, SEM and fsQCA & AI capabilities & Moderator: absorptive capacity & Servitization \\ \hline
+\textcite{almheiri2024}; \textcite{almheiri2025} & 344 public managers, UAE (same data set) & Survey, scale development & AI capability & Dynamic capabilities; creativity & Organisational performance \\ \hline
+\textcite{ameen2024} & Organisations in China & Survey of managers & AI capability coupled with strategic agility & -- & Product and service creativity \\ \hline
+\textcite{aldhaheri2024} & 487 SME managers and owners & Survey & AI applications (as mediator) & AI applications and dynamic capabilities, between turbulence and outcomes & Innovation; firm performance \\ \hline
+\textcite{neiroukh2025} & 230 organisations & Survey, PLS-SEM & AI capability & Decision speed and quality & Organisational performance \\ \hline
+\textcite{gao2025} & Chinese listed firms; 511 paired questionnaires & Archival data and survey & AI use & Digital adaptability; market perception & Innovation capability \\ \hline
+\textcite{selgascors2026} & 243 Spanish organisations; 10 cases & Survey and case studies & AI integration & Sensing, seizing, reconfiguring (overall effect) & Competitive advantage \\ \hline
+\textcite{shao2026} & 546 Chinese SMEs & Survey, SEM & AI capability & Business model innovation & Competitive advantage \\ \hline
+\textcite{yu2026} & 220 tourism platform users & Two-wave survey & Platform AI capability & User-centric design; privacy risk & Perceived user value \\
+\end{longtable}
+\vspace{-0.8\baselineskip}
+\source{author's own work, based on the cited studies.}
+\par}
+
+Read together, the studies in Table~\ref{tab:studies} support a cautious conclusion. AI capability is consistently associated with positive outcomes, and several studies find that dynamic capabilities or related constructs carry at least part of this effect. The evidence has, however, four weaknesses that limit what can be inferred. First, almost all studies rely on cross-sectional surveys of managers; exceptions are the follow-up design of \textcite{drydakis2022}, the two-wave survey of \textcite{yu2026} and the combination of archival and survey data in \textcite{gao2025}. Second, the mediators differ from study to study, and only \textcite{selgascors2026} model sensing, seizing and reconfiguring as separate dimensions. Third, the samples come mainly from SMEs, manufacturing, public organisations and cross-industry settings; only \textcite{chen2022} study e-commerce firms, and only the two-wave survey mentioned above studies a platform, from the user's perspective. Fourth, some evidence is less independent than it appears: the two studies by Almheiri and colleagues use the same sample of 344 public managers \parencite{almheiri2024, almheiri2025} and must be treated as one source of evidence rather than two.
+
+% ------------------------------------------------------------
+\section{Research Gap and Conceptual Model}
+\label{sec:gapmodel}
+
+A research gap exists where the available literature does not answer a question that theory considers important. Identifying such a gap requires comparing what theory predicts with what empirical studies have actually examined. In this thesis, the resource-based view and dynamic capabilities theory predict a specific mechanism, in which AI capability leads to competitive advantage through sensing, seizing and transforming, while the empirical review above shows how far this mechanism has been studied. The first subsection sets out where the two diverge, and the second translates the theoretical argument into a conceptual model and hypotheses that can be assessed against the evidence.
+
+\subsection{Research Gap}
+\label{sec:gap}
+
+The review points to four related gaps. The first is a gap in context. The mediating role of dynamic capabilities between AI and firm outcomes has been examined in public organisations \parencite{almheiri2025}, SMEs \parencite{aldhaheri2024, le2024}, manufacturing \parencite{aboufoul2023} and cross-industry samples \parencite{selgascors2026}, but not in e-commerce retailers or platform owners. Given the specific competitive logic of platforms \parencite{cennamo2021, rietveld2021}, this is a substantial omission.
+
+The second gap concerns the level of analysis within dynamic capabilities. Most studies treat dynamic capabilities as a single construct, and the one study that distinguishes sensing, seizing and reconfiguring reports only an overall indirect effect \parencite{selgascors2026}. It therefore remains unknown which dimension carries the effect of AI. The third gap concerns the outcome. Most studies measure performance, creativity or innovation rather than competitive advantage, and none measures whether an advantage persists over time. As \textcite{brynjolfsson2021} show, short-term performance can be a misleading indicator for technologies that require large complementary investments. The fourth gap is methodological: the predominance of cross-sectional, single-respondent surveys, together with the reuse of data sets, means that the existing evidence is thinner than the number of publications suggests.
+
+These gaps justify the approach of this thesis. Rather than adding a further cross-sectional study, the thesis assesses systematically, relationship by relationship, how far the existing evidence supports the proposed mechanism, while accounting for differences in construct, context and design.
+
+\subsection{Conceptual Model and Hypotheses}
+\label{sec:model}
+
+Figure~\ref{fig:model} presents the conceptual model of the thesis. AI capability is expected to relate to sustainable competitive advantage both directly and indirectly through dynamic capabilities. The indirect path is specified in two ways: through each of the three first-order dimensions of sensing, seizing and transforming, and through dynamic capabilities as a higher-order construct. The model applies to e-commerce retailers and platform owners.
+
+\begin{figure}[htbp]
+\centering
+\caption{Conceptual model of the thesis}
+\label{fig:model}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  var/.style={draw, thick, rounded corners=3pt, fill=nBlueL, text width=2.6cm, minimum height=1.2cm, align=center, font=\footnotesize\bfseries},
+  dim/.style={draw, rounded corners=2pt, fill=white, text width=2.3cm, minimum height=0.75cm, align=center},
+  arr/.style={-{Stealth[length=2.2mm]}, thick},
+  lab/.style={font=\scriptsize\bfseries, fill=white, inner sep=1.5pt}]
+  \node[var] (ai) {AI capability};
+  \node[dim, right=2.4cm of ai, yshift=1.2cm] (sen) {Sensing};
+  \node[dim, below=0.35cm of sen] (sei) {Seizing};
+  \node[dim, below=0.35cm of sei] (tra) {Transforming};
+  \node[draw, dashed, thick, rounded corners=4pt, fit=(sen)(sei)(tra), inner sep=7pt, label={[font=\footnotesize\bfseries]above:Dynamic capabilities}] (dc) {};
+  \node[var, right=2.4cm of sei] (sca) {Sustainable competitive advantage};
+  \path (ai.east) ++(0,0) coordinate (aie);
+  \draw[arr] (ai) -- (dc.west |- ai) node[midway, above, lab] {H2};
+  \draw[arr] (sen.east) -- (sca.west |- sen.east) -- (sca.north west);
+  \draw[arr] (sei.east) -- (sca.west);
+  \draw[arr] (tra.east) -- (sca.west |- tra.east) -- (sca.south west);
+  \draw[arr] (ai.south) -- ++(0,-2.1) -| (sca.south) node[pos=0.25, above, lab] {H1 (direct)};
+  \node[lab, right=0.05cm of sen.east, yshift=0.18cm] {H3};
+  \node[lab, right=0.05cm of sei.east, yshift=0.18cm] {H4};
+  \node[lab, right=0.05cm of tra.east, yshift=0.18cm] {H5};
+  \node[lab, above=0.75cm of dc.north] {H6: mediation by dynamic capabilities as a whole};
+  \node[draw, dotted, rounded corners=5pt, fit=(ai)(dc)(sca), inner xsep=10pt, inner ysep=40pt, label={[font=\scriptsize\itshape]below:Context: e-commerce retailers and platform owners}] {};
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work.}
+\end{figure}
+
+The direct relationship (H1) follows from the RBV. If AI capability is a firm-specific combination of resources that is difficult to imitate, it should be associated with an advantage over competitors \parencite{mikalef2021ai, kemp2024}. Empirical support exists for related outcomes, such as competitive advantage in SMEs \parencite{shao2026} and performance in e-commerce firms \parencite{chen2022}. The evidence from big data analytics, where the direct effect disappeared once dynamic capabilities were considered \parencite{mikalef2020}, suggests, however, that the direct relationship may be weak.
+
+\begin{description}
+  \item[H1:] AI capability is positively associated with sustainable competitive advantage.
+\end{description}
+
+The relationship between AI capability and dynamic capabilities (H2) follows from the micro-foundations argument of \textcite{teece2007}. AI can provide skills, processes and decision rules that support sensing, seizing and transforming, as case evidence \parencite{mikalef2021b2b} and survey evidence \parencite{almheiri2025, le2024} indicate. The relationship is expected for each dimension, but it is stated for dynamic capabilities as a whole, because the separate paths are covered by H3 to H5.
+
+\begin{description}
+  \item[H2:] AI capability is positively associated with dynamic capabilities.
+\end{description}
+
+The three dimension-specific hypotheses (H3 to H5) state that each dimension transmits part of the effect of AI capability. Sensing should matter because AI widens and accelerates the firm's view of markets and customers \parencite{huang2021, drydakis2022}. Seizing should matter because AI improves the speed and quality of decisions \parencite{neiroukh2025, chen2022}. Transforming should matter because AI creates value mainly when processes and business models are reconfigured \parencite{wambataguimdje2020, sjodin2021, shao2026}.
+
+\begin{description}
+  \item[H3:] Sensing capability mediates the relationship between AI capability and sustainable competitive advantage.
+  \item[H4:] Seizing capability mediates the relationship between AI capability and sustainable competitive advantage.
+  \item[H5:] Transforming capability mediates the relationship between AI capability and sustainable competitive advantage.
+\end{description}
+
+Finally, H6 treats sensing, seizing and transforming as a higher-order construct. This specification reflects the view that the three dimensions work as an integrated system whose effect may exceed that of each dimension alone \parencite{teece2007}, and it corresponds to studies that model dynamic capabilities as an overall construct \parencite{mikalef2020, selgascors2026}. H6 is therefore not a repetition of H3 to H5 but an alternative specification of the same mechanism. To avoid counting the same evidence twice, a study that reports only an overall indirect effect is assigned to H6, and a study that reports dimension-specific effects is assigned to H3 to H5.
+
+\begin{description}
+  \item[H6:] Dynamic capabilities, as a higher-order construct, mediate the relationship between AI capability and sustainable competitive advantage.
+\end{description}
+
+Table~\ref{tab:hypotheses} summarises the six hypotheses, their theoretical basis and the main prior evidence on which they draw.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of hypotheses}
+\label{tab:hypotheses}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|p{0.7cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{3.6cm}|}
+\hline
+\textbf{No.} & \textbf{Hypothesis} & \textbf{Theoretical basis} & \textbf{Main prior evidence} \\
+\hline
+H1 & AI capability is positively associated with sustainable competitive advantage & RBV & \textcite{shao2026}; \textcite{chen2022} \\ \hline
+H2 & AI capability is positively associated with dynamic capabilities & Dynamic capabilities (micro-foundations) & \textcite{almheiri2025}; \textcite{le2024}; \textcite{mikalef2021b2b} \\ \hline
+H3 & Sensing mediates the relationship between AI capability and sustainable competitive advantage & Dynamic capabilities & \textcite{selgascors2026} (path to sensing only) \\ \hline
+H4 & Seizing mediates the relationship & Dynamic capabilities & \textcite{selgascors2026} (path to seizing only); \textcite{neiroukh2025} \\ \hline
+H5 & Transforming mediates the relationship & Dynamic capabilities & \textcite{selgascors2026} (path to reconfiguring only); \textcite{shao2026} \\ \hline
+H6 & Dynamic capabilities, as a higher-order construct, mediate the relationship & RBV and dynamic capabilities & \textcite{selgascors2026}; \textcite{mikalef2020} \\
+\hline
+\end{tabularx}
+\source{author's own work.}
+\end{table}
+
+% ------------------------------------------------------------
+\section{Chapter Summary}
+\label{sec:ch2summary}
+
+This chapter has combined the resource-based view and dynamic capabilities theory to explain how AI capability may lead to a sustainable competitive advantage. The RBV explains why AI technology alone is unlikely to provide such an advantage, while dynamic capabilities theory explains how firms can turn AI-related resources into an advantage that survives changing conditions. The chapter has defined the key constructs, distinguishing AI adoption, integration and capability, and has separated sustainable competitive advantage from both environmental sustainability and short-term performance.
+
+The review of the empirical literature shows that AI capability is consistently associated with positive outcomes and that dynamic capabilities appear to carry part of this effect. The evidence is, however, concentrated outside e-commerce and platform-based business, rarely distinguishes the three dimensions of dynamic capabilities, seldom measures competitive advantage itself and relies mainly on cross-sectional data. On this basis, the chapter has developed a conceptual model with six hypotheses. The following chapter describes the method used to assess how far the published evidence supports each of them.

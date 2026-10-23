@@ -1,0 +1,5 @@
+{
+ "filter": "from_publication_date:2015-01-01,to_publication_date:2026-12-31,type:article,language:en,title_and_abstract.search:(\"artificial intelligence\" OR \"machine learning\" OR \"AI\") AND (capability OR capabilities OR sensing OR seizing OR reconfiguring OR reconfiguration) AND (\"competitive advantage\" OR \"competitive advantages\" OR \"firm performance\" OR \"organizational performance\" OR \"organisational performance\" OR \"competitive performance\")",
+ "run_date": "2026-10-22",
+ "source": "OpenAlex API https://api.openalex.org/works"
+}

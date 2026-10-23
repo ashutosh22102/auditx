@@ -1,0 +1,70 @@
+Bibliography entries: 114 | duplicate keys: []
+Distinct cited keys: 113
+
+CITED BUT NOT IN BIBLIOGRAPHY: []
+
+IN BIBLIOGRAPHY BUT NEVER CITED (biblatex prints only cited entries unless \nocite): ['martinmartin2021']
+\nocite present: False
+
+INCLUDED STUDIES WITH BIBKEY: bib vs review data
+  malik2021            consistent
+  texeira2026          consistent
+  dzreke2025           consistent
+  firmansyah2025       consistent
+  wang2026             consistent
+  li2026               consistent
+  quoc2026             consistent
+  guo2025              consistent
+  deng2025             consistent
+  mashi2024            consistent
+  noor2026             consistent
+  srahin2026           consistent
+  adamu2026            consistent
+  fano2025             year bib=2026 data=2025
+  shao2026             consistent
+  li2025               consistent
+  awamleh2022          consistent
+  waqas2024            consistent
+  almereb2026          consistent
+  wu2026               consistent
+  almheiri2025         year bib=2025 data=2024
+  ayoub2026            consistent
+  kim2026              consistent
+  bunea2026            consistent
+  giang2026            consistent
+  gafsi2026            consistent
+  almheiri2024         consistent
+  dzreke2025b          consistent
+  aldhaheri2024        consistent
+  almamary2025         consistent
+  kokash2026           consistent
+  neirafernandez2026   consistent
+  mukhopadhyay2024     consistent
+  sofiyan2026          consistent
+  tu2026               consistent
+  alnofeli2025         consistent
+  ghobakhloo2025       consistent
+  chen2026             consistent
+
+OTHER BIB ENTRIES (not included studies) found in records.jsonl by DOI:
+  chen2022             W4225540707 -> TA exclude E5
+  feroz2024            W4404181825 -> TA include None
+  fossowamba2022       W4286750034 -> TA exclude E5
+  fossowamba2024       W4390587699 -> TA exclude E5
+  hossain2022          W4297818236 -> TA include None
+  karami2026           W7161124699 -> TA include None
+  kemp2024             W4367173429 -> TA include None
+  krakowski2023        W4210271404 -> TA exclude E5
+  maune2026            W7155097010 -> TA include None
+  mikalef2021ai        W3124957586 -> TA exclude E5
+  mikalef2023          W4376116789 -> TA exclude E5
+  mikalef2023public    W4313594144 -> TA exclude E5
+  neiroukh2025         W4399568894 -> TA exclude E5
+  rana2022             W3191737511 -> TA include None
+  siaw2024             W4404364980 -> TA include None
+  wambataguimdje2020   W3025637241 -> TA exclude E5
+
+BIB ENTRIES WITHOUT DOI: ['booth2025', 'firmansyah2025', 'noor2026']
+
+CITATIONS PER FILE
+{'Chapters/Chapter1.tex': 47, 'Chapters/Chapter2.tex': 151, 'Chapters/Chapter4.tex': 185, 'Chapters/Chapter5.tex': 65, 'Chapters/Chapter3.tex': 53, 'Appendices/AppendixA.tex': 4, 'Appendices/AppendixC.tex': 44}

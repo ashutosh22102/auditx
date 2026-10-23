@@ -1,0 +1,370 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 4 - ANALYSIS AND DISCUSSION
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DRAFT. All numbers in this chapter come from the review run on 22 October 2026
+% (OpenAlex search, two AI screening runs and verified extraction).
+% Before submission:
+%  - Check every study result quoted here against the paper itself, and add
+%    page numbers to the citations (SRH Guidelines 4.2.1).
+%  - Studies marked "not assessable" were judged on their abstract only.
+%  - Nine studies were retained on title only (Hossain 2022, Htet 2026, Li 2025,
+%    Wu 2026, Anjum 2026, Ramirez 2026, Amin 2026, Samadhiya 2023, Luo 2025): read
+%    them and confirm or remove them, then update all counts (see audit_output/).
+%  - Rewrite the text in your own words.
+
+\chapter{Analysis and Discussion}
+\label{ch:analysis}
+
+This chapter applies the procedure described in Chapter~\ref{ch:method}. Section~\ref{sec:overview} reports the results of the search and selection and describes the included studies and their quality. Sections~\ref{sec:direct} and~\ref{sec:mediating} assess the evidence for the direct and the mediating relationships, Section~\ref{sec:discussion} discusses the findings in relation to the literature reviewed in Chapter~\ref{ch:litreview}, and Section~\ref{sec:ch4summary} summarises the chapter.
+
+% ------------------------------------------------------------
+\section{Overview of Included Studies}
+\label{sec:overview}
+
+The search in OpenAlex on 22 October 2026 identified 1,807 records (Appendix~\ref{AppendixA}). Figure~\ref{fig:prisma} shows how these records were reduced to the final evidence base. After the removal of 10 duplicates, 1,797 records were screened by title and abstract. The two screening runs of the language model agreed on 96.9\% of the records, which corresponds to a Cohen's kappa of 0.84 for the include or exclude decision (Section~\ref{sec:criteria}). This figure shows that the model classified the records consistently across runs; it is not a measure of agreement between human reviewers. The 55 disagreements were resolved by a third run. At this stage, 1,600 records were excluded, most of them because they did not examine an organisational AI construct together with dynamic capabilities or competitive advantage (E5, 1,032 records), because they were literature reviews or similar publication types (E4, 413) or because they were not journal articles (E1, 147).
+
+The remaining 197 reports were assessed for eligibility. An open-access full text could be retrieved for 64 of them; the other 133 were assessed on the basis of their abstracts or, where the database record contained no abstract, their titles. A further 77 reports were excluded at this stage, so that 120 studies were included. Of these, 28 were assessed in full text, 83 on their abstract and 9 on their title alone. The nine title-only studies are retained provisionally: they contribute no extracted results, and their eligibility still has to be confirmed against the full texts (Section~\ref{sec:limitations}). Two of the included studies, by Almheiri and colleagues, are based on the same sample of 344 public managers \parencite{almheiri2024, almheiri2025}, so the 120 publications represent 119 independent studies, and the 95 empirical studies among them are based on 94 independent samples. The citation searching identified 678 further records, which could not be screened (Section~\ref{sec:limitations}). Appendix~\ref{AppendixC} lists all included studies.
+
+\begin{figure}[htbp]
+\centering
+\caption{Flow of records through the review}
+\label{fig:prisma}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  main/.style={draw, rounded corners=2pt, fill=nBlueL, text width=5.2cm, minimum height=0.8cm, align=center, inner sep=3pt},
+  side/.style={draw, rounded corners=2pt, fill=white, text width=4.6cm, align=left, inner sep=3pt},
+  arr/.style={-{Stealth[length=2.2mm]}, thick}]
+  \node[main] (id) {Records identified in OpenAlex\\(n = 1,807)};
+  \node[side, right=0.5cm of id] (dup) {Duplicates removed (n = 10)};
+  \node[main, below=0.5cm of id] (scr) {Records screened by title and abstract\\(n = 1,797)};
+  \node[side, right=0.5cm of scr] (ex1) {Records excluded (n = 1,600):\\E5 construct (n = 1,032)\\E4 study type (n = 413)\\E1 publication type (n = 147)\\E6 unit of analysis (n = 8)};
+  \node[main, below=1.5cm of scr] (el) {Reports assessed for eligibility (n = 197)\\full text: 64; abstract or title: 133};
+  \node[side, right=0.5cm of el] (ex2) {Reports excluded (n = 77):\\E5 construct (n = 48)\\E4 study type (n = 17)\\E6 unit of analysis (n = 8)\\E1 publication type (n = 3)\\E2 language (n = 1)};
+  \node[main, below=1.0cm of el, fill=nSand, thick] (inc) {Studies included (n = 120;\\119 independent; 9 provisional,\\title only)\\Tier 1: 22; Tier 2: 73;\\Tier 3: 25};
+  \node[side, dashed, left=0.5cm of el, text width=2.6cm] (cit) {Citation searching:\\678 further records, not screened};
+  \draw[arr] (id) -- (scr);
+  \draw[arr] (scr) -- (el);
+  \draw[arr] (el) -- (inc);
+  \draw[arr] (id) -- (dup);
+  \draw[arr] (scr) -- (ex1);
+  \draw[arr] (el) -- (ex2);
+  \foreach \nd/\lab in {id/Identification, scr/Screening, el/Eligibility, inc/Included}
+    \node[font=\scriptsize\bfseries, anchor=east] at ($(\nd.west -| cit.west)+(-0.15,0)$) {\lab};
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work, following the PRISMA 2020 flow diagram \parencite{page2021}.}
+\end{figure}
+
+The evidence base is very recent. As Figure~\ref{fig:years} shows, 112 of the 120 studies were published in 2024 or later, and 57 appeared in 2026 alone, although that year was covered only until the date of the search. Research on AI capability, dynamic capabilities and competitive advantage is therefore still at an early and rapidly expanding stage, which matches the observation in Chapter~\ref{ch:litreview} that much of the relevant work was published only recently.
+
+\begin{figure}[htbp]
+\centering
+\caption{Included studies by year of publication}
+\label{fig:years}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+  ybar, width=\textwidth, height=5cm, bar width=0.9cm,
+  ymin=0, ymax=65, ylabel={Number of studies},
+  symbolic x coords={2021,2022,2023,2024,2025,2026*},
+  xtick=data, nodes near coords, nodes near coords align={vertical},
+  every node near coord/.append style={font=\footnotesize, black},
+  tick label style={font=\footnotesize}, label style={font=\footnotesize},
+  axis lines*=left, ymajorgrids=true, grid style={gray!25},
+  enlarge x limits=0.12, fill=nBlue!70, draw=nBlue]
+\addplot[fill=nBlue!70, draw=nBlue] coordinates {(2021,1) (2022,3) (2023,4) (2024,18) (2025,37) (2026*,57)};
+\end{axis}
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work, based on the review data; *2026 until 22 October. Years are the year of first publication recorded in OpenAlex, which can differ by one year from the issue year used in citations.}
+\end{figure}
+
+Figure~\ref{fig:designs} summarises the design of the included studies and the way they treat the two central constructs. Most empirical studies are cross-sectional surveys (65 of 95 empirical studies); only one study used a time-lagged design and one a longitudinal panel, and 25 studies are conceptual. The AI construct is most often the extent of AI use or adoption (52 studies), followed by AI capability (46) and AI integration (22). Dynamic capabilities are measured as an overall construct in 24 studies and through their dimensions in only 10. In 52 studies, the mechanism is a related capability, such as agility or innovation capability, and 34 studies examine no capability mechanism at all. The outcome is competitive advantage in 74 studies and both competitive advantage and performance in another 20. Only one study measured whether an advantage persists over time \parencite{dzreke2025}. Thirty of the 95 empirical studies do not report the country of their sample in the accessible text; where it is reported, China (10 studies) is the most frequent context.
+
+\begin{figure}[htbp]
+\centering
+\caption{Design, AI construct and capability mechanism of the included studies}
+\label{fig:designs}
+\pgfplotsset{small bars/.style={
+  xbar, width=4.6cm, height=4.6cm, bar width=0.28cm, xmin=0,
+  y dir=reverse, ytick=data, nodes near coords, nodes near coords align={horizontal},
+  every node near coord/.append style={font=\scriptsize, black},
+  tick label style={font=\scriptsize}, title style={font=\footnotesize\bfseries},
+  axis lines*=left, fill=nBlue!70, draw=nBlue, enlarge y limits=0.15}}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}
+\begin{axis}[small bars, title={(a) Research design}, xmax=85,
+  symbolic y coords={Cross-sectional survey,Conceptual,Mixed methods,Other,Case study,Time-lagged survey,Longitudinal panel}]
+\addplot[fill=nBlue!70, draw=nBlue] coordinates {(65,Cross-sectional survey) (25,Conceptual) (13,Mixed methods) (13,Other) (2,Case study) (1,Time-lagged survey) (1,Longitudinal panel)};
+\end{axis}
+\end{tikzpicture}\hspace{0.3cm}
+\begin{tikzpicture}
+\begin{axis}[small bars, title={(b) AI construct}, xmax=70, width=3.6cm,
+  symbolic y coords={AI use,AI capability,AI integration}]
+\addplot[fill=nBlue!70, draw=nBlue] coordinates {(52,AI use) (46,AI capability) (22,AI integration)};
+\end{axis}
+\end{tikzpicture}\hspace{0.3cm}
+\begin{tikzpicture}
+\begin{axis}[small bars, title={(c) Mechanism}, xmax=70, width=3.6cm,
+  symbolic y coords={Related capability,None,DC overall,DC dimensions}]
+\addplot[fill=nBlue!70, draw=nBlue] coordinates {(52,Related capability) (34,None) (24,DC overall) (10,DC dimensions)};
+\end{axis}
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work, based on the review data (n = 120).}
+\end{figure}
+
+The publication pattern of the evidence is unusual. The 120 studies appeared in 105 different journals, and no journal published more than three of them. Established outlets of information systems and management research, such as \textit{Industrial Marketing Management}, the \textit{International Journal of Information Management} and the \textit{Journal of Enterprise Information Management}, account for only a handful of studies, while most appeared in journals that published a single study on the topic. Such dispersion indicates that the field has not yet formed a cumulative research programme in which studies build on each other's measures and findings. It also means that the quality of the peer review behind individual studies varies considerably, which strengthens the case for appraising each study directly rather than relying on the reputation of the journal (Section~\ref{sec:appraisal}).
+
+The samples are of moderate size. Of the 80 empirical studies that report a sample size, the median is 312 respondents, and 16 studies are based on fewer than 150. Partial least squares structural equation modelling is by far the most common method of analysis (39 studies), followed by covariance-based structural equation modelling (9). Only 9 studies report that they collected data from more than one informant per organisation. In combination with the cross-sectional designs, this means that most results rest on the perceptions of a single manager, measured at a single point in time.
+
+The methodological quality of the evidence is limited. Of the 95 empirical studies, 3 were rated high, 8 moderate and 9 low. For the other 75, the quality could not be assessed: 66 were accessible only as an abstract, 8 only as a title, and one full text reported too little detail to be appraised. Among the 20 studies that could be appraised, the most frequent weakness was temporal ordering: only two studies separated their measures in time. The criterion on common method bias was met in 10 studies, and an indirect effect was estimated directly in 10. Other criteria were rarely met even where the full text was available. Only three studies fully met the sampling criterion, which requires an appropriate sampling frame and information on response rates and non-response bias, and only two fully met the criterion of controlling for alternative explanations. The problem is most acute where the evidence matters most. Of the 22 Tier~1 studies, which examine AI, dynamic capabilities and an outcome together, only four could be appraised: three were rated moderate and one low, while the quality of the remaining 18 could not be assessed. A rating of \enquote{not assessable} does not imply that a study is of low quality; it means that its quality is unknown. Because these studies nevertheless contribute most of the directly reported evidence, Sections~\ref{sec:h1} and~\ref{sec:h2} test whether the judgements change when only the appraisable studies are considered. Table~\ref{tab:matrix} presents the key studies that inform the assessment of the hypotheses: all studies that report a hypothesised relationship directly, all studies of high or moderate quality, all empirical studies from e-commerce, platform or closely related digital contexts, all studies with contradictory results and one further study discussed in the text. The ratings of every included study are reported in Appendix~\ref{AppendixC}.
+
+{\singlespacing
+\scriptsize
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2.0cm}|>{\raggedright\arraybackslash}p{2.1cm}|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{1.4cm}|}
+\caption{Study matrix of key included studies}
+\label{tab:matrix} \\
+\hline
+\textbf{Study} & \textbf{Context; n} & \textbf{Design} & \textbf{AI construct} & \textbf{Mechanism} & \textbf{Outcome} & \textbf{Quality} & \textbf{Evidence} \\
+\hline
+\endfirsthead
+\multicolumn{8}{|l|}{\scriptsize\textit{Table~\ref{tab:matrix} continued}} \\
+\hline
+\textbf{Study} & \textbf{Context; n} & \textbf{Design} & \textbf{AI construct} & \textbf{Mechanism} & \textbf{Outcome} & \textbf{Quality} & \textbf{Evidence} \\
+\hline
+\endhead
+\endfoot
+\multicolumn{8}{|l|}{\textit{Studies reporting a hypothesised relationship directly}} \\ \hline
+\textcite{firmansyah2025}\textsuperscript{\dag} & Digital MSMEs, Indonesia; 70 & Survey, PLS-SEM & AI capability & -- & Sustainable CA & Low & H1 D* \\ \hline
+\textcite{shao2026} & SMEs, China; 546 & Survey, SEM & AI capability & Business model innovation & CA & n.a. & H1 D; H6 I \\ \hline
+\textcite{almereb2026} & Manufacturing, Jordan; 300 & Survey, SEM & Generative AI & -- & Cost and differentiation CA & n.a. & H1 D* \\ \hline
+\textcite{kim2026} & Exporters, South Korea; 400 & Survey, PLS-SEM & AI capabilities & -- & Differentiation and low-cost CA & n.a. & H1 D; H6 I \\ \hline
+\textcite{giang2026} & SMEs, Vietnam; 463 & Survey, PLS-SEM & AI capability & Organisational agility & CA & n.a. & H1 D*; H2 I; H6 I \\ \hline
+\textcite{gafsi2026} & Family firms, Tunisia; 120 & Survey, SEM & AI capabilities & -- & Competitive performance & n.a. & H1 D* \\ \hline
+\textcite{almamary2025} & Entrepreneurial ventures; 327 & Survey, PLS-SEM & AI capabilities & -- & CA; venture success & n.a. & H1 D* \\ \hline
+\textcite{tu2026} & Manufacturing, China; 304 & Survey, bootstrap & AI capability & Learning; resilience & Competitiveness & n.a. & H1 D; H6 I \\ \hline
+\textcite{waqas2024} & Manufacturing (CPEC); 463 & Survey, PLS-SEM & AI capability & Green innovation & Green CA & n.a. & H1 D*; H2 I; H6 I \\ \hline
+\textcite{almheiri2024}; \textcite{almheiri2025} & Public sector, UAE; 344 (same sample) & Survey, scale development & AI capability & DC overall; creativity & Organisational performance & n.a. & H1 I; H2 D; H6 I \\ \hline
+\textcite{fano2025} & SMEs, Europe; 102 & Survey, PLS-SEM & AI ambidexterity & DC dimensions & SME performance & n.a. & H2 D; H6 I \\ \hline
+\textcite{neirafernandez2026} & Firms, Spain; n.r. & Survey, PLS-SEM & AI readiness & Dynamic digital capabilities & Digital maturity & n.a. & H2 D; H6 I \\ \hline
+\multicolumn{8}{|l|}{\textit{Studies of high or moderate quality}} \\ \hline
+\textcite{texeira2026} & Restaurants, Brazil; 400 & Survey, bootstrap & AI capability & AI-enabled sustainability capabilities & Sustainable CA & High & H1 I; H2 I; H6 I \\ \hline
+\textcite{wang2026} & High-tech firms, China; 229 & Time-lagged survey & AI capabilities & Disruptive innovation & Sustainable competitive performance & High & H1 C; H2 I \\ \hline
+\textcite{guo2025} & Cross-border platform sellers, China; 322 & Survey, CB-SEM & AI adoption with strategic agility & International marketing capabilities & Innovation and brand advantage & High & H1 I; H2 I; H6 I \\ \hline
+\textcite{malik2021}\textsuperscript{\dag} & Technology-intensive firms; 385 & Survey, PLS-SEM & AI capability & Innovation and organisational capability & CA & Moderate & H2 I; H6 I \\ \hline
+\textcite{srahin2026} & Multiple sectors, Jordan; 287 & Survey, PLS-SEM & Augmented analytics adoption & Firm agility & CA & Moderate & H1 I; H2 I; H6 I \\ \hline
+\textcite{dzreke2025}\textsuperscript{\dag} & Listed firms, North America and Europe; 1,200 & Panel and interviews & BDA--AI integration & Orchestration capability & Competitive persistence & Moderate & H1 I; H6 I \\ \hline
+\textcite{li2026} & Tourism, China; 502 & Survey, CB-SEM & AI orientation & Absorptive capacity; opportunity recognition & Performance & Moderate & H2 I; H4 I; H5 I \\ \hline
+\textcite{noor2026}\textsuperscript{\dag} & E-commerce, Pakistan; n.r. & Survey, PLS-SEM & Generative AI adoption & Market sensing; content capabilities & Marketing performance & Moderate & H1 I; H2 I; H3 I; H6 I \\ \hline
+\textcite{deng2025} & Audit firms, multinational; 312 & Survey, CB-SEM & Generative AI adoption & Adaptation mechanisms & Audit performance & Moderate & H1 I; H2 I; H6 I \\ \hline
+\textcite{adamu2026} & Digital sectors, Nigeria; 268 & Survey, fsQCA & AI capability & -- & CA & Moderate & H1 I \\ \hline
+\textcite{quoc2026} & Start-ups, Vietnam; 315 & Survey, PLS-SEM & AI adoption intensity (moderator) & DC overall & Start-up performance & Moderate & -- \\ \hline
+\multicolumn{8}{|l|}{\textit{Further studies from e-commerce contexts, studies with contradictory results and other studies discussed in the text}} \\ \hline
+\textcite{awamleh2022} & E-commerce, Jordan; 224 & Survey, PLS-SEM & AI use & IT capabilities & CA & n.a. & H6 I \\ \hline
+\textcite{bunea2026} & E-retailing; n.r. & Mixed methods & AI implementation & AI benefits; customer experience & Cost and differentiation CA & n.a. & H2 I; H6 I \\ \hline
+\textcite{mashi2024} & Manufacturing SMEs, Nigeria; 346 & Survey, PLS-SEM & AI adoption and use facets & -- & CA & Low & H1 mixed \\ \hline
+\textcite{chen2026} & Logistics, USA; 318 & Survey, CB-SEM & AI infrastructure & Green innovation & Sustainable CA & n.a. & H1 C; H2 I; H6 I \\ \hline
+\textcite{sofiyan2026} & Naval units, Indonesia; 81 units & Multilevel survey & AI capability & Organisational change capacity & Performance & n.a. & H2 C \\ \hline
+\textcite{mukhopadhyay2024} & FMCG, India; 26 interviews & Qualitative & AI-enabled marketing & DC; marketing capabilities & CA & n.a. & H1 I; H2 I \\ \hline
+\textcite{kokash2026} & Tourism; n.r. & Survey, CB-SEM and fsQCA & AI capabilities & DC overall & Financial and market performance & n.a. & H1 I; H6 C \\
+\end{longtable}
+\vspace{-0.6\baselineskip}
+{\scriptsize Abbreviations: CA = competitive advantage; DC = dynamic capabilities; D = directly reported; D* = directly reported, classification provisional (see Section~\ref{sec:h1}); I = indirectly relevant; C = contradictory; n.a. = not assessable (abstract only); n.r. = not reported; \dag\ = publication details or peer-review status not yet confirmed.\par}
+\source{author's own work, based on the review data.}
+\par}
+
+% ------------------------------------------------------------
+\section{Direct Relationships}
+\label{sec:direct}
+
+The conceptual model rests on two direct relationships. H1 links AI capability to sustainable competitive advantage, and H2 links AI capability to dynamic capabilities. The second relationship is a precondition for the mediating mechanism: if AI capability were not related to dynamic capabilities, the proposed indirect paths through sensing, seizing and transforming could not exist. Both relationships are assessed as associations reported in the included studies, since the cross-sectional designs that dominate the evidence base do not allow causal conclusions. The following subsections assess the evidence for each relationship in turn.
+
+\subsection{AI Capability and Sustainable Competitive Advantage (H1)}
+\label{sec:h1}
+
+Nine independent studies report a positive relationship between AI capability and competitive advantage directly. They cover SMEs in China \parencite{shao2026} and Vietnam \parencite{giang2026}, manufacturing firms in Jordan, China and the China--Pakistan Economic Corridor \parencite{almereb2026, tu2026, waqas2024}, Korean exporters \parencite{kim2026}, Tunisian family businesses \parencite{gafsi2026}, entrepreneurial ventures \parencite{almamary2025} and digital micro, small and medium-sized enterprises in Indonesia \parencite{firmansyah2025}. The last study is the only one of the nine from a digital business context; it reports a path coefficient of 0.361 between AI capability and sustainable competitive advantage, but in a sample of only 70 firms, with low methodological quality, in a journal whose peer-review status could not be confirmed, and with a sample description that its accessible abstract does not repeat. The quality of the other eight studies could not be assessed, because only their abstracts were accessible. For six of the nine, moreover, the classification as directly reported is provisional. Two report AI capability only jointly with other digital capabilities, so that its specific contribution is not visible in the accessible results \parencite{giang2026, waqas2024}; one measures generative AI, which is classified as a capability only on the basis of the abstract's wording \parencite{almereb2026}; in one, competitive advantage may be a dimension of AI's effect rather than its outcome \parencite{almamary2025}; and one names competitive performance as its dependent variable but reports its finding as an effect on firm performance \parencite{gafsi2026}; the sixth is the small Indonesian study. Only three studies report an AI-specific relationship with competitive advantage in the accessible text without such a qualification \parencite{shao2026, kim2026, tu2026}.
+
+A further 44 studies provide indirectly relevant evidence, and among them are the strongest studies of the review. In a high-quality survey of 322 Chinese firms that sell through cross-border platforms, the combination of AI adoption and strategic agility was positively related to product innovation advantage ($\beta = 0.519$) and brand upgrading advantage ($\beta = 0.336$) \parencite{guo2025}. Both relationships also ran through international marketing capabilities, so that the coupling was related to the advantages directly as well as indirectly. In a survey of 287 respondents in Jordan, the adoption of augmented analytics had a total effect of 0.542 on competitive advantage, but the direct effect became small once firm agility was taken into account; its bootstrapped confidence interval included zero, although the reported $p$-value (0.036) would indicate significance \parencite{srahin2026}. A high-quality study of 400 decision-makers in Brazilian restaurants reports a similar pattern: AI capability was not significantly related to sustainable competitive advantage once AI-enabled sustainability capabilities were included as mediators \parencite{texeira2026}. In these two studies, AI relates to competitive advantage mainly through other capabilities, whereas in the platform-seller study both the direct and the indirect paths were significant.
+
+Three studies report results that contradict H1. In a time-lagged survey of 229 Chinese high-tech firms, AI capabilities showed no significant main effect on sustainable competitive performance ($b = 0.05$); their role was rather to strengthen the effect of social entrepreneurship orientation on disruptive innovation \parencite{wang2026}. In that study, AI capabilities were modelled mainly as a moderator and were measured in the same survey wave as disruptive innovation, so that the null coefficient comes from a moderation model rather than from a test designed for H1. A study of 318 logistics firms in the United States found that AI infrastructure did not achieve sustainable performance or competitive advantage directly, but only through green innovation, and two of the routes from AI infrastructure through green innovation were not significant either \parencite{chen2026}. A survey of Nigerian manufacturing SMEs found mixed results: AI adoption was not significantly related to competitive advantage, whereas the extent of AI applications was \parencite{mashi2024}.
+
+The studies also differ in what they mean by competitive advantage. Some distinguish cost-based from differentiation-based advantage \parencite{almereb2026, kim2026}, some measure specific advantages, such as product innovation and brand upgrading \parencite{guo2025}, and others focus on green competitive advantage \parencite{waqas2024, chen2026} or on competitive performance relative to rivals \parencite{gafsi2026, wang2026}. Almost all of these measures ask managers to rate their firm's position in comparison with competitors at the time of the survey. They therefore capture a perceived advantage at one point in time, whereas the resource-based view defines a sustained advantage by its persistence despite competitors' attempts to imitate it \parencite{barney1991, peteraf1993}. Even the directly reported evidence on H1 thus concerns competitive advantage rather than sustainable competitive advantage in the sense of this thesis.
+
+Two further analyses show how fragile the direct evidence is. The first concerns the AI construct. All nine directly reported results come from studies that measure AI capability, whereas the 28 studies that measure the extent of AI use provide only indirectly relevant evidence on H1. The largest part of the literature therefore answers a different question from the one asked in this thesis: whether firms that use AI more intensively report an advantage, not whether a firm-specific AI capability produces one. The second analysis is a sensitivity check that considers only the 20 studies whose quality could be appraised. In this subset, only one study reports the relationship directly, and it is of low quality \parencite{firmansyah2025}; among the eleven studies of high or moderate quality, seven provide indirectly relevant evidence and one contradicts H1 \parencite{wang2026}. The direct support for H1 thus rests almost entirely on studies that could not be appraised.
+
+The overall direction of the evidence also deserves a critical comment. Of the 70 results on the relationship between AI and competitive advantage that were extracted from the included studies, 57 are positive, 7 null, 5 mixed and only 1 negative. Such a one-sided distribution is consistent with a real positive association, but it is also what would be expected if studies with non-significant results were less likely to be published. The restriction of the evidence base to journal articles (Section~\ref{sec:criteria}) cannot rule out this possibility, so the high share of positive results should not be read as strong confirmation.
+
+According to the decision rules in Table~\ref{tab:rules}, H1 is \textit{partly supported}. Direct supporting evidence exists, but none of it comes from a study of moderate or high quality, the classification of six of the nine studies is provisional, and the one high-quality study coded as contradictory, in which AI capabilities were modelled mainly as a moderator, found no significant main effect. The judgement would be the same if only the three unqualified studies were counted as direct evidence. The context rule leads to the same judgement: the only directly reported evidence from a digital business context is a small study of low quality \parencite{firmansyah2025}.
+
+\subsection{AI Capability and Dynamic Capabilities (H2)}
+\label{sec:h2}
+
+Three independent samples report a positive relationship between AI capability and dynamic capabilities directly. AI capability was positively related to dynamic capabilities in a sample of public organisations in the United Arab Emirates \parencite{almheiri2024, almheiri2025}, AI ambidexterity fostered dynamic capabilities, measured as sensing, seizing and transforming, in 102 European SMEs \parencite{fano2025}, and AI readiness was related to dynamic digital capabilities in Spanish firms \parencite{neirafernandez2026}. None of these samples comes from e-commerce, and the quality of all three could not be assessed from the accessible text.
+
+The transferability of this evidence to the focal context is limited for different reasons in each case. The sample of Almheiri and colleagues consists of government organisations, which do not compete in markets in the way that e-commerce firms do, so that their dynamic capabilities serve public service performance rather than competitive advantage \parencite{almheiri2024, almheiri2025}. The study of \textcite{fano2025} examines SMEs that participate in a European digital innovation hub, a group that is likely to be more digitally advanced than the average firm, and \textcite{neirafernandez2026} relate AI readiness to digital maturity rather than to an advantage over competitors. The direct evidence for H2 thus comes from settings in which AI may build dynamic capabilities, but in which the link to competition, which is central to e-commerce, plays little role.
+
+The 42 studies with indirectly relevant evidence relate AI to capabilities that resemble one dimension of dynamic capabilities. AI capability was strongly related to innovation capability ($\beta = 0.68$) and organisational capability ($\beta = 0.62$) in 385 technology-intensive organisations \parencite{malik2021}, a study whose publication details could not be confirmed, augmented analytics adoption to firm agility ($\beta = 0.625$) \parencite{srahin2026}, and AI orientation to absorptive capacity ($\beta = 0.312$) among 502 managers of Chinese tourism businesses \parencite{li2026}. The only e-commerce study with an explicit dynamic capability dimension found that generative AI adoption was strongly related to market sensing ($\beta = 0.571$) in Pakistani e-commerce firms \parencite{noor2026}. Qualitative studies also link AI and dynamic capabilities, although without establishing a direction: interviews in Indian consumer goods firms describe how dynamic capabilities, exercised through AI technologies, enhance marketing practices \parencite{mukhopadhyay2024}, AI-powered customer relationship management capabilities could be mapped onto the micro-foundations of dynamic capabilities \parencite{alnofeli2025}, and a Delphi panel of 14 experts mapped AI and other digital technologies onto sensing, seizing and transforming in manufacturing \parencite{ghobakhloo2025}.
+
+Two results qualify this picture. In 81 naval units in Indonesia, AI capability had no direct effect on organisational change capacity; the effect appeared only under transformational leadership \parencite{sofiyan2026}. More fundamentally, the direction of the relationship is not settled. One study modelled dynamic capabilities as an antecedent of generative AI adoption rather than as its outcome ($\beta = 0.453$) \parencite{deng2025}, and a study of Vietnamese start-ups treated AI adoption as a moderator of the effect of dynamic capabilities on performance \parencite{quoc2026}. Because almost all studies are cross-sectional, their data cannot distinguish between these specifications \parencite{rohrer2022}. The sensitivity check is even more revealing for H2 than for H1. If only the 20 appraisable studies are considered, no study reports the relationship between AI capability and dynamic capabilities directly; all 12 relevant studies in this subset, 8 of them of high or moderate quality, relate AI to capabilities that resemble dynamic capabilities rather than to dynamic capabilities themselves. The direct evidence for H2 therefore comes exclusively from studies that could only be judged on their abstracts. This does not make that evidence wrong, but it means that the most important link of the conceptual model has not yet been demonstrated in a study whose methods could be examined.
+
+H2 is therefore judged \textit{partly supported}: the direct evidence is consistent but comes from three samples of unknown quality outside the focal context.
+
+% ------------------------------------------------------------
+\section{Mediating Relationships}
+\label{sec:mediating}
+
+Before the individual mediators are assessed, it is useful to look at the ten included studies that explicitly address sensing, seizing and transforming as dimensions (Figure~\ref{fig:designs}). Their designs show where the literature stands. Four of them are conceptual: they propose that AI supports sensing, seizing and transforming \parencite{karami2026}, discuss how AI substitutes for or complements human intelligence in each dimension \parencite{siaw2024}, or develop similar typologies (two further papers listed in Appendix~\ref{AppendixC}). One derives such links from the judgement of a Delphi panel of experts \parencite{ghobakhloo2025}. Two are qualitative or mixed-methods studies that identify AI-related capabilities for each dimension from expert interviews \parencite{feroz2024} or from interview and survey material \parencite{maune2026}. Only three are quantitative \parencite{fano2025, neirafernandez2026, noor2026}, and none of them reports an indirect effect through a single dimension on competitive advantage. A further quantitative study names sensing, seizing and reconfiguring but models dynamic capabilities only as an overall antecedent of AI adoption \parencite{deng2025}. Theorising about the dimensions of dynamic capabilities thus runs well ahead of testing.
+
+\subsection{Sensing Capability (H3)}
+\label{sec:h3}
+
+No study estimates the indirect effect of AI capability on competitive advantage through sensing. The closest evidence comes from the e-commerce study discussed above, which reports a significant serial indirect effect of generative AI adoption through market sensing and brand visibility on entrepreneurial marketing performance (0.110) \parencite{noor2026}. Because the AI construct is adoption rather than capability, the outcome is marketing performance rather than competitive advantage and the path runs through an additional mediator, this result is indirectly relevant only. \textcite{fano2025} measured sensing as part of dynamic capabilities, but the accessible results do not separate the dimensions. Because the study itself models market sensing as the sensing dimension and estimates the indirect effect through it separately, the result counts for H3 under the assignment rule (Table~\ref{tab:rules}). H3 is therefore judged \textit{partly supported}, on the basis of a single indirectly relevant study.
+
+The non-quantitative studies add a qualification that matters for the interpretation of H3. A mixed-methods study of 312 respondents in Zimbabwe reports that AI enhanced sensing through automated monitoring, real-time data integration and predictive analytics \parencite{maune2026}. Conceptual work, however, suggests that the role of AI may differ between internal data analytics and the scanning of the external environment through which opportunities are sensed \parencite{siaw2024}; the abstract of that paper is not consistent about which of the two AI suits better, so the precise proposition still has to be checked against its full text. If such a distinction holds, the contribution of AI to sensing depends on what is sensed. In e-commerce, where much relevant market information is generated internally through customer transactions and behaviour, AI may support sensing more strongly than in industries where opportunities arise outside the firm's own data. This proposition has not been tested, but it suggests that H3 may hold more strongly in the focal context of this thesis than elsewhere.
+
+\subsection{Seizing Capability (H4)}
+\label{sec:h4}
+
+No included study reports an indirect effect through seizing measured as a dimension of dynamic capabilities. One study frames absorptive capacity as a seizing capability and reports a significant indirect effect of AI orientation on firm performance through it (0.067) \parencite{li2026}. Because the AI construct is an orientation rather than a capability, the outcome is firm performance rather than competitive advantage, and absorptive capacity is related to, but not identical with, seizing as defined in Table~\ref{tab:constructs}, this result is indirectly relevant only. Under the assignment rule, a separate indirect effect through a mediator that the study itself assigns to one dimension counts for the hypothesis on that dimension and not for H6; this is the same treatment as the market sensing result for H3. H4 is therefore judged \textit{partly supported}, on the basis of a single indirectly relevant study.
+
+\subsection{Transforming Capability (H5)}
+\label{sec:h5}
+
+The same applies to transforming. The study of Chinese tourism businesses frames entrepreneurial opportunity recognition as a transforming pathway, with an indirect effect of 0.057 on firm performance \parencite{li2026}, and the Delphi study maps AI onto transforming activities without testing an effect \parencite{ghobakhloo2025}. Neither result measures transforming as a dimension of dynamic capabilities, and no study estimates an indirect effect through it on competitive advantage. The first result is nevertheless indirectly relevant and, under the assignment rule, counts for H5. H5 is therefore judged \textit{partly supported}, on the basis of a single indirectly relevant study. The serial indirect effect through both mediators in the same study (0.009) spans two dimensions and is not assigned to any single hypothesis.
+
+\subsection{Dynamic Capabilities as a Higher-Order Construct (H6)}
+\label{sec:h6}
+
+No study reports an estimated indirect effect of AI capability on competitive advantage through dynamic capabilities as defined in this thesis, so there is no directly reported evidence for H6. The 51 studies with indirectly relevant evidence fall into two groups. The first group estimates indirect effects on competitive advantage through capabilities related to, but not identical with, dynamic capabilities: innovation capability (0.31) and organisational capability (0.27) \parencite{malik2021}, firm agility (0.445, with only a small remaining direct effect) \parencite{srahin2026}, international marketing capabilities (0.346 and 0.242) \parencite{guo2025}, AI-enabled sustainability capabilities, whose indirect effect increased with the firms' sustainable food innovation orientation \parencite{texeira2026}, organisational learning and resilience \parencite{tu2026} and orchestration capability \parencite{dzreke2025}. The second group examines dynamic capabilities themselves, but with firm performance as the outcome or without an estimated indirect effect \parencite{almheiri2024, fano2025, neirafernandez2026}.
+
+Across all included studies, the related capabilities that serve as mediators can be grouped by their content. Innovation-related capabilities are the most frequent (24 studies), followed by learning and knowledge capabilities, including absorptive capacity (14), agility and flexibility (12), marketing and customer capabilities (8), resilience (7), orchestration and integration capabilities (5) and business model innovation (3). Mapping these groups onto the three dimensions of dynamic capabilities is possible only in part. Agility combines the sensing of change with a quick response and therefore spans sensing and seizing; absorptive capacity covers the acquisition as well as the transformation of knowledge; and innovation capability can be read as seizing or as transforming, depending on whether the emphasis lies on exploiting an opportunity or on renewing the resource base. Because most of these constructs cut across the dimensions, the evidence collected under H6 cannot simply be redistributed to H3 to H5; only where a study itself assigns a mediator to a single dimension is the result counted for that dimension (Sections~\ref{sec:h3} to~\ref{sec:h5}).
+
+The way in which mediation is established is a further reason for caution. Of the studies that report a mediating mechanism, only 13 estimate the indirect effect directly, for example with bootstrapped confidence intervals, whereas 38 claim mediation on the basis of separate significant paths or without a clearly reported test. As \textcite{zhao2010} argue, mediation is demonstrated by the indirect effect itself, so the claims of these 38 studies cannot be accepted at face value. Even where indirect effects were estimated, they rest on cross-sectional data, and standard mediation models require assumptions about the order and independence of the variables that such data rarely satisfy \parencite{rohrer2022}. The consistent pattern of indirect effects is therefore best read as a robust association between AI, related capabilities and competitive advantage, not as proof of a causal chain.
+
+Where indirect effects were estimated, their size varies considerably. In the study of Jordanian firms, the indirect effect of augmented analytics adoption on competitive advantage through firm agility was 0.445 and accounted for most of the total effect of 0.542 \parencite{srahin2026}. In the study of Chinese tourism businesses, by contrast, the indirect effects of AI orientation on firm performance through absorptive capacity and opportunity recognition were 0.067 and 0.057, and the serial effect through both was only 0.009 \parencite{li2026}. In the restaurant study, the indirect effect through AI-enabled operational sustainability rose from 0.086 at a low to 0.155 at a high level of sustainable food innovation orientation \parencite{texeira2026}. Differences of this magnitude reflect different constructs, outcomes and estimation methods, which is one reason why the results cannot be pooled. They also suggest that the strength of the capability pathway depends on the context and on which capability is examined, a point that the synthesis by direction of effect (Section~\ref{sec:synthesis}) cannot capture.
+
+Three observations limit what these studies show. First, some of them merge the constructs that the thesis keeps apart. \textcite{ayoub2026} measure an \enquote{AI-enabled dynamic capability}, and \textcite{shao2026} interpret AI capability itself as a dynamic capability, so that their results cannot show whether dynamic capabilities mediate the effect of AI. Second, one study explicitly tested the mediating role of dynamic capabilities between AI capabilities and performance in tourism firms and did not find it \parencite{kokash2026}. Third, none of the 120 included studies specifies dynamic capabilities as a higher-order construct. Under the decision rules, indirectly relevant evidence suffices for the judgement \textit{partly supported}, and H6 is therefore judged \textit{partly supported}. The basis of this judgement must be stated precisely, however: the evidence consistently shows that AI capability is associated with competitive advantage through other organisational capabilities, but not specifically through dynamic capabilities as a higher-order construct, and the only explicit test of mediation by dynamic capabilities found none.
+
+% ------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+
+The preceding sections reported what the evidence shows for each hypothesis. This section asks what these results mean. It addresses three questions: how the findings relate to the literature reviewed in Chapter~\ref{ch:litreview}, what the evidence says specifically about e-commerce and platform-based business, and how the conceptual model needs to change in the light of the evidence. Answering these questions requires interpretation beyond the decision rules, and the judgements made here should therefore be read as the author's interpretation rather than as results of the review procedure.
+
+\subsection{Comparison with Prior Literature}
+\label{sec:comparison}
+
+Table~\ref{tab:evidence} brings the judgements together. None of the six hypotheses can be judged \textit{supported}. All six are \textit{partly supported} under the decision rules, but the basis of this judgement differs greatly between them. H1 and H2 rest on several directly reported results, almost all from studies of unknown quality; H3, H4 and H5 each rest on a single indirectly relevant result, two of them from the same study; and H6 rests on studies of related capabilities rather than of dynamic capabilities as a higher-order construct. The label \textit{partly supported} therefore spans very different amounts of evidence, which is why Table~\ref{tab:evidence} states the basis of each judgement. The evidence is thus broad but shallow: more than 100 studies relate AI to capabilities and competitive advantage, but few test the specific mechanism proposed in Chapter~\ref{ch:litreview}, few can be appraised, and almost none come from e-commerce or platform-based business.
+
+\begin{table}[htbp]
+\centering
+\caption{Evidence matrix and judgements for H1 to H6}
+\label{tab:evidence}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|p{0.7cm}|>{\centering\arraybackslash}p{1.4cm}|>{\centering\arraybackslash}p{1.6cm}|>{\centering\arraybackslash}p{1.4cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{1.7cm}|>{\raggedright\arraybackslash}p{2.0cm}|}
+\hline
+\textbf{H} & \textbf{Directly reported} & \textbf{Indirectly relevant} & \textbf{Contra\-dictory} & \textbf{Quality of direct evidence} & \textbf{Focal context} & \textbf{Judgement} \\
+\hline
+H1 & 9* & 44 & 3 & 1 low, 8 not assessable & 1 direct (low), 3 indirect & Partly supported \\ \hline
+H2 & 3 & 42 & 1 & 3 not assessable & 3 indirect & Partly supported \\ \hline
+H3 & 0 & 1 & 0 & -- & 1 indirect & Partly supported (one indirect study) \\ \hline
+H4 & 0 & 1 & 0 & -- & -- & Partly supported (one indirect study) \\ \hline
+H5 & 0 & 1 & 0 & -- & -- & Partly supported (one indirect study) \\ \hline
+H6 & 0 & 51 & 1 & -- & 4 indirect & Partly supported (related capabilities only) \\
+\hline
+\end{tabularx}
+\par\smallskip
+{\footnotesize\raggedright Numbers are independent studies; one study can provide evidence for several hypotheses, and a study with results in two categories is counted once, in the stronger category. *For six of the nine studies, the classification as directly reported is provisional (Section~\ref{sec:h1}). The indirectly relevant evidence for H4 and H5 comes from the same study. Focal context: e-commerce, platform-based and closely related digital business.\par}
+\source{author's own work, applying the decision rules in Table~\ref{tab:rules}.}
+\end{table}
+
+The most consistent finding concerns the way AI relates to competitive advantage. In two of the appraised studies, the direct association between AI and competitive advantage became small or non-significant once other capabilities were included, while the indirect association through those capabilities remained \parencite{srahin2026, texeira2026}, and a study of AI infrastructure that could be judged only on its abstract reports a similar pattern \parencite{chen2026}. The pattern is not uniform: in the high-quality study of platform sellers, the direct and the indirect paths were both significant \parencite{guo2025}, and other studies report a direct association alongside indirect ones \parencite{tu2026, kokash2026}. The pattern resembles what \textcite{mikalef2020} found for big data analytics, whose effect on competitive performance was fully mediated by dynamic capabilities. It also fits the resource-based argument developed in Section~\ref{sec:rbv}: AI is valuable, but it is rarely rare or difficult to imitate on its own, and an advantage arises only when AI is combined with firm-specific capabilities \parencite{barney1991, kemp2024}. The results thus support the central intuition of the thesis, that AI capability works at least partly through organisational capabilities, even though they do not yet support the specific role of dynamic capabilities.
+
+The mediators found in the literature are, however, remarkably diverse. Agility, innovation capability, absorptive capacity, organisational learning, marketing capabilities and orchestration capability all appear as links between AI and competitive advantage. This diversity is consistent with the view of \textcite{eisenhardt2000} that dynamic capabilities take the form of specific, identifiable processes, but it also confirms the measurement problem identified in Section~\ref{sec:ssr}. Studies rarely state how their mediators relate to sensing, seizing and transforming, and only 10 of the 120 studies address these dimensions at all, only three of them quantitatively. The dimension-specific mechanism proposed by \textcite{teece2007} has therefore hardly been tested. The one study that distinguished the dimensions in the earlier literature, \textcite{selgascors2026}, was not retrieved by the database search; even it reports only an overall indirect effect.
+
+The evidence also adds a qualification that the conceptual model did not anticipate: the effect of AI depends on boundary conditions. In restaurants, the indirect effect of AI capability increased with the firms' sustainable food innovation orientation \parencite{texeira2026}, the effect on organisational change capacity depended on transformational leadership \parencite{sofiyan2026}, and environmental and technological turbulence shaped the role of AI in two further studies \parencite{aldhaheri2024, kokash2026}. In other studies, AI was itself the moderator, strengthening the effect of dynamic capabilities \parencite{quoc2026} or of entrepreneurial orientation \parencite{wang2026}. These findings suggest that AI may amplify existing capabilities as much as it creates new ones, a possibility that is consistent with the complementation dynamics described by \textcite{krakowski2023}.
+
+A further check concerns the studies that Chapter~\ref{ch:litreview} identified as most relevant (Table~\ref{tab:studies}). Of these 15 studies, 4 are included in the review \parencite{shao2026, almheiri2024, almheiri2025, aldhaheri2024}. Another four were retrieved but excluded because they relate AI only to performance \parencite{chen2022, mikalef2023, mikalef2023public, neiroukh2025}, which reflects the protocol decision described in Section~\ref{sec:criteria}. The remaining seven were not retrieved by the search. For six of them, the reason lies in their outcome or construct, such as servitization, creativity, innovation capability, business risk or perceived user value, which falls outside the outcome terms of the search string \parencite{aboufoul2023, ameen2024, gao2025, drydakis2022, yu2026} or, in one case, outside AI altogether \parencite{mikalef2020}. The seventh, \textcite{selgascors2026}, examines AI integration, the three dimensions of dynamic capabilities and competitive advantage and would have qualified; its absence shows that a single database and a title-and-abstract search can miss relevant studies, particularly in smaller journals. The completed citation search would have been the appropriate remedy.
+
+The findings can also be compared with the earlier review of the AI business value literature by \textcite{enholm2022}, which distinguished first-order effects of AI, at the level of processes, from second-order effects at the level of the organisation. The present review suggests how the two levels are connected. The studies rarely find that AI produces competitive advantage, a second-order effect, on its own; instead, AI first strengthens capabilities such as agility, innovation or learning, and these capabilities are associated with the advantage. In this sense, the review adds a mechanism to that earlier distinction, although the cross-sectional evidence cannot show that the sequence actually unfolds over time. The comparison with \textcite{wambataguimdje2020} points in the same direction: their conclusion that AI creates value only when processes are reconfigured is consistent with the finding that the indirect paths carry most of the effect.
+
+The review also speaks to the theoretical debate about how AI can produce a competitive advantage at all. \textcite{kemp2024} argues that AI creates an advantage only when it is situated in the firm through specific organisational activities, and \textcite{moser2024} respond that situatedness must be taken even more seriously in theorising about AI-based advantage. The empirical studies support the general thrust of this argument, because they locate the effect of AI in firm-specific capabilities rather than in the technology. They do not, however, measure situatedness itself. Most studies treat AI capability as a set of resources and skills that can be rated on a questionnaire, which says little about how AI is embedded in the routines of a particular firm. Closing this gap would require designs that observe how AI is used in organisations over time, for example longitudinal case studies.
+
+Finally, the quality of the evidence limits all of these conclusions. Most studies are cross-sectional surveys of single respondents, so their results are vulnerable to common method bias \parencite{podsakoff2024} and cannot establish the direction of the relationships, as the competing specifications of \textcite{deng2025} and \textcite{quoc2026} illustrate. Only one study measured the persistence of an advantage \parencite{dzreke2025}, and its reporting raises doubts about its data. As \textcite{brynjolfsson2021} show, the economic effects of AI may only appear after complementary investments have been made, which cross-sectional performance measures cannot capture. The judgements in Table~\ref{tab:evidence} should therefore be read as statements about the state of the evidence rather than as statements about the true effect of AI.
+
+\subsection{Evidence from E-Commerce and Platform Contexts}
+\label{sec:focal}
+
+Because the research questions concern e-commerce and platform-based business, this section separates the evidence from this focal context from the evidence that has to be transferred from other industries. Only 7 of the 120 included studies come from this focal and closely related context, and only four of them are empirical studies of e-commerce or platform-based business, one of them of complementors; their designs and quality differ considerably. Direct evidence about platform owners is almost entirely absent. One high-quality survey examines 322 Chinese firms that sell through cross-border platforms, that is, complementors \parencite{guo2025}. Three studies concern e-commerce firms or retailers: a moderate-quality survey of Pakistani e-commerce firms \parencite{noor2026}, a survey of 224 respondents from Jordanian e-commerce enterprises \parencite{awamleh2022} and a mixed-methods study of electronic retailing \parencite{bunea2026}. Two studies examine digitally active firms more broadly: a moderate-quality configurational study of 268 firms in Nigeria \parencite{adamu2026} and a low-quality survey of 70 micro, small and medium-sized enterprises in Indonesia, described in the extraction as digital firms, a description that the accessible abstract does not repeat \parencite{firmansyah2025}. The only study of platform owners is conceptual \parencite{dzreke2025b}.
+
+Considered on their own, these studies support the following statements. For H1, the small Indonesian study of low quality reports a direct positive relationship between AI capability and sustainable competitive advantage, and three studies provide indirectly relevant evidence: AI adoption combined with strategic agility relates to innovation and brand advantages among platform sellers \parencite{guo2025}, generative AI adoption relates to marketing performance in e-commerce firms \parencite{noor2026}, and AI capability and cloud infrastructure can substitute for each other in configurations associated with competitive advantage \parencite{adamu2026}. For H2, the platform-seller and e-commerce studies just mentioned and the study of electronic retailing \parencite{bunea2026} relate AI to capabilities that resemble dynamic capabilities, namely international marketing capabilities, market sensing and content capabilities, and the benefits of AI implementation; none measures dynamic capabilities as such. For H3, the Pakistani e-commerce study is the only evidence on sensing in the entire review. For H4 and H5, there is no evidence from the focal context; the only indirectly relevant study comes from tourism \parencite{li2026}. For H6, four studies report that related capabilities, such as information technology capabilities, international marketing capabilities or customer experience, mediate the relationship between AI and competitive advantage: the platform-seller, Pakistani and electronic retailing studies, together with the Jordanian e-commerce survey \parencite{awamleh2022}.
+
+Within the focal context alone, the judgements would therefore be largely the same as for the whole review, but on a much narrower basis: H1, H2, H3 and H6 would be partly supported, each by between one and four studies, whereas H4 and H5 would have to be judged not yet examined, because no evidence on them comes from this context. Wherever Sections~\ref{sec:direct} and~\ref{sec:mediating} draw on studies from manufacturing, public organisations, tourism or SMEs in general, their conclusions involve a transfer of evidence to the focal context. Such a transfer is plausible for the general logic that AI works through complementary capabilities, because this pattern recurs across very different settings. It is much less plausible for the mechanisms that distinguish platforms from other firms, as the following paragraphs explain.
+
+The review thus confirms the context gap identified in Section~\ref{sec:gap}. None of the focal studies tests dynamic capabilities as a mediator of competitive advantage, and the mechanisms that are specific to platforms, such as data network effects \parencite{gregory2021} and the integrative capabilities of platform leaders \parencite{helfat2018}, have not been examined empirically at all; the only included study on platform owners is conceptual and of uncertain peer-review status \parencite{dzreke2025b}.
+
+The geographical distribution of the evidence reinforces this gap. Of the 95 empirical studies, 30 do not report their country in the accessible text. Of the others, most come from Southeast Asia (14), East Asia (13) and the Middle East (12), followed by Africa and South Asia; only three studies each come from North America and Europe. The evidence base is therefore dominated by firms in emerging markets, many of them SMEs. This is valuable, because these firms are often under-represented in management research. It also means, however, that the evidence says little about the large platform firms of the United States, Europe and China, for which data network effects and ecosystem orchestration are most relevant \parencite{gregory2021, rietveld2021}. For a thesis concerned with e-commerce and platform-based business, this is a significant limitation of the available evidence.
+
+There are nevertheless some indications that the focal context matters. In a panel of 1,200 listed firms, the effect of combining big data analytics and AI on competitive persistence was reported to be stronger in fast-moving sectors such as FinTech and e-commerce than in capital-intensive sectors such as heavy manufacturing \parencite{dzreke2025}. If this result holds, AI-based advantages may be both more attainable and more contested in e-commerce than elsewhere: the speed of these markets rewards the capabilities that AI supports, but it also allows rivals to catch up quickly. Because of the doubts about the reporting of that study noted in Section~\ref{sec:comparison}, the result can only be treated as a hypothesis for future research, but it is consistent with the view of \textcite{cennamo2021} that competition in digital markets follows its own logic.
+
+\subsection{Revised Conceptual Model}
+\label{sec:revised}
+
+Figure~\ref{fig:revised} revises the conceptual model of Figure~\ref{fig:model} in the light of the evidence. Three changes are made. First, related organisational capabilities, such as agility, innovation capability and organisational learning, are added as the pathway that the literature actually tests; it carries most of the indirectly relevant evidence for H6. Second, the dimension-specific paths through sensing, seizing and transforming are marked as resting on a single indirectly relevant study each, none of them from a test of the dimension on competitive advantage. Third, boundary conditions are added, because several studies show that the effect of AI depends on conditions such as innovation orientation, leadership and environmental turbulence.
+
+\begin{figure}[htbp]
+\centering
+\caption{Revised conceptual model}
+\label{fig:revised}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  var/.style={draw, thick, rounded corners=3pt, fill=nBlueL, text width=2.5cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries},
+  dim/.style={draw, rounded corners=2pt, fill=white, text width=2.3cm, minimum height=0.7cm, align=center},
+  rel/.style={draw, thick, rounded corners=3pt, fill=nSand, text width=3.9cm, minimum height=1.0cm, align=center},
+  strong/.style={-{Stealth[length=2.2mm]}, very thick},
+  weak/.style={-{Stealth[length=2.2mm]}, thick, dashed},
+  none/.style={-{Stealth[length=2.2mm]}, densely dotted, gray},
+  lab/.style={font=\scriptsize, fill=white, inner sep=1pt}]
+  \node[var] (ai) {AI capability};
+  \node[dim, right=2.6cm of ai, yshift=1.6cm] (sen) {Sensing};
+  \node[dim, below=0.3cm of sen] (sei) {Seizing};
+  \node[dim, below=0.3cm of sei, yshift=0cm] (tra) {Transforming};
+  \node[draw, dashed, rounded corners=4pt, fit=(sen)(sei)(tra), inner sep=6pt, label={[font=\footnotesize\bfseries]below:Dynamic capabilities}] (dc) {};
+  \node[var, right=2.6cm of sei] (sca) {Sustainable competitive advantage};
+  \node[rel, below=1.4cm of tra] (rel) {\textbf{Related capabilities}\\ agility, innovation capability, learning, marketing capabilities};
+  \node[draw, dashed, rounded corners=3pt, text width=3.6cm, align=center, above=1.7cm of dc] (bc) {\textbf{Boundary conditions}\\ innovation orientation, leadership, environmental turbulence};
+  \draw[weak] (ai) -- (dc.west |- ai) node[pos=0.45, above, lab] {H2 partly};
+  \draw[weak] (sen.east) -- (sca.west |- sen.east) -- (sca.north west) node[pos=0.25, above, lab] {H3 one indirect study};
+  \draw[weak] (sei.east) -- (sca.west);
+  \draw[weak] (tra.east) -- (sca.west |- tra.east) -- (sca.south west);
+  \node[lab] at ($(sei.east)!0.5!(sca.west)+(0,0.22)$) {H4 one indirect study};
+  \node[lab] at ($(tra.east)!0.5!(sca.west |- tra.east)+(0,-0.22)$) {H5 one indirect study};
+  \draw[strong] (ai.south) |- (rel.west) node[pos=0.75, above, lab] {consistent};
+  \draw[strong] (rel.east) -| (sca.south) node[pos=0.25, above, lab] {H6 partly (related capabilities)};
+  \draw[weak] (ai.north) -- ++(0,2.6) -| (sca.north) node[pos=0.25, above, lab] {H1 partly (direct association not uniform)};
+  \draw[weak] (bc.south) -- (dc.north);
+  \draw[weak] (bc.east) -| ($(sca.north)+(0.7,0)$);
+  \node[draw, rounded corners=2pt, anchor=north west, align=left, font=\scriptsize] at ($(rel.south west)+(-4.4,-0.4)$) {%
+    \tikz\draw[strong] (0,0) -- (0.6,0); consistent indirect evidence \quad
+    \tikz\draw[weak] (0,0) -- (0.6,0); partly supported, thin or contingent evidence};
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work, based on the evidence in Table~\ref{tab:evidence}.}
+\end{figure}
+
+The revised model has two implications for the following chapter. Theoretically, it suggests that the link between AI and competitive advantage is better described by a broad set of capabilities that AI strengthens than by the three dimensions of dynamic capabilities alone. Methodologically, it shows where evidence is missing: dimension-specific tests of sensing, seizing and transforming with competitive advantage as the outcome, longitudinal designs that can capture the persistence of an advantage, and studies of e-commerce retailers and platform owners.
+
+% ------------------------------------------------------------
+\section{Chapter Summary}
+\label{sec:ch4summary}
+
+The structured review identified 1,807 records and included 120 studies, almost all of them published since 2024. AI capability is consistently associated with competitive advantage, but mostly indirectly, through capabilities such as agility, innovation capability and organisational learning. No hypothesis is supported, and all six are partly supported on very different bases: the direct relationship with competitive advantage (H1) and the relationship with dynamic capabilities (H2) on several studies of mostly unknown quality, the mediating roles of sensing, seizing and transforming (H3 to H5) on a single indirectly relevant study each, and the mediating role of dynamic capabilities as a whole (H6) on studies of related capabilities rather than of dynamic capabilities themselves.
+
+These judgements are limited by the quality of the evidence: most studies are cross-sectional, the quality of most could not be assessed, and only four empirical studies concern e-commerce or platform-based business. The revised model therefore treats related capabilities and boundary conditions as part of the mechanism and marks the paths that remain untested. The following chapter draws conclusions from these findings and answers the research questions.

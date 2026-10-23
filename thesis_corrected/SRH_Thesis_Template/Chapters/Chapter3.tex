@@ -1,0 +1,303 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 3 - METHODOLOGY
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DRAFT. Before submission:
+%  - The search, screening and extraction were run on 22 October 2026 in
+%    OpenAlex with AI assistance (Section 3.2.2). Before submission you MUST
+%    check all 120 inclusion decisions and the results quoted in Chapter 4
+%    against the papers, as Section 3.2.2 states, and check SRH rules on
+%    declaring AI assistance.
+%  - Add page numbers to the citations (SRH Guidelines 4.2.1).
+%  - Rewrite the text in your own words.
+
+\chapter{Methodology}
+\label{ch:method}
+
+This chapter describes how the research questions are answered. Section~\ref{sec:philosophy} sets out the research philosophy and the review design, and Section~\ref{sec:searchselect} explains how studies are searched for and selected. Section~\ref{sec:appsyn} describes the quality appraisal, the data extraction and the rules used to synthesise the evidence. Sections~\ref{sec:quality} and~\ref{sec:limitations} discuss research quality, ethics and the limitations of the method, and Section~\ref{sec:ch3summary} summarises the chapter.
+
+% ------------------------------------------------------------
+\section{Research Philosophy and Design}
+\label{sec:philosophy}
+
+Methodological choices are not merely technical decisions. They follow from assumptions about the nature of the phenomena under study and about how knowledge of them can be obtained, and a research design is convincing only if these assumptions, the design and the methods are consistent with each other. A study that aims to assess hypotheses derived from theory, as this thesis does, requires a design in which the hypotheses are fixed in advance and the evidence is evaluated against explicit standards. The following subsections first set out the philosophical position of the thesis and then explain the review design that follows from it.
+
+\subsection{Research Paradigm}
+\label{sec:paradigm}
+
+The research questions of this thesis ask to what extent published evidence supports a set of relationships that were specified in advance. This places the thesis within the positivist tradition. Positivism is aligned with the hypothetico-deductive model of science, in which hypotheses are formulated a priori, variables are operationalised and empirical findings are used to identify explanatory associations or causal relationships \parencite{park2020}. The reasoning of the thesis is accordingly deductive: it moves from the theory developed in Chapter~\ref{ch:litreview} to the evaluation of evidence.
+
+The positivist position is, however, qualified in one important respect. Ontologically, the thesis assumes that organisational capabilities and competitive positions exist independently of the researcher. Epistemologically, it assumes that these phenomena can only be known imperfectly, because the studies on which the thesis relies observe them through survey measures, managerial perceptions and particular samples. The thesis therefore adopts a post-positivist stance: empirical findings are treated as fallible and probabilistic, and the conclusions are expressed as degrees of support rather than as proof. With regard to axiology, the third assumption that distinguishes research paradigms \parencite{park2020}, the influence of the researcher is limited by fixing the selection criteria and decision rules before the synthesis begins and by documenting every decision (Section~\ref{sec:quality}).
+
+An interpretivist approach, for example interviews exploring how managers make sense of AI, would be suitable for developing new explanations, but not for assessing how far the existing evidence supports relationships that are already specified. The evidence assessed in this thesis is mainly quantitative. Qualitative case studies are nevertheless retained where they illuminate the proposed mechanisms, and the synthesis itself is narrative rather than statistical, as Section~\ref{sec:synthesis} explains.
+
+\subsection{Structured Literature Review Design}
+\label{sec:design}
+
+Review research uses prior research as its data source in order to develop knowledge contributions \parencite{kunisch2023}, and a literature review can constitute an independent study with its own methods and contribution \parencite{kraus2022}. Reviews differ in how they search for, appraise, synthesise and analyse the literature. \textcite{grant2009} compare fourteen review types along these four dimensions, which they summarise as the SALSA framework, and \textcite{snyder2019} distinguishes systematic, semi-systematic and integrative approaches for business research. Traditional narrative reviews, by contrast, are often criticised for lacking thoroughness and for being open to researcher bias \parencite{tranfield2003}, a criticism that Snyder also shares.
+
+This thesis uses a structured literature review. It adopts the explicit search, selection and appraisal procedures of systematic reviews \parencite{tranfield2003, paul2021}, but synthesises the evidence narratively rather than statistically. Systematicity is understood as a matter of degree: \textcite{simsek2023} describe it as an orientation towards explicit methods guided by the principles of transparency, coverage, saturation, connectedness, universalism and coherence, and warn against applying procedures without mindfulness. The review gives priority to transparency and coherence, because its purpose is evaluative. \textcite{kunisch2023} argue that the methods of a review must be aligned with its purpose, and assessing hypotheses requires explicit appraisal criteria and decision rules rather than a descriptive mapping of a field.
+
+Three alternative designs were considered. A survey of e-commerce and platform firms, analysed with structural equation modelling, would produce new estimates. Access to such firms is, however, limited within a master's thesis, and a single cross-sectional survey would face the same problems of common method bias and uncertain temporal ordering that already limit the existing evidence \parencite{podsakoff2024, rohrer2022}. A meta-analysis would require a sufficient number of studies with comparable constructs and effect estimates, which Chapter~\ref{ch:litreview} showed are not available; reviews in this situation can instead use structured methods of synthesis without meta-analysis \parencite{campbell2020}. A bibliometric analysis would map publication and citation patterns, but it could not evaluate how strongly the evidence supports specific relationships. The structured review is therefore the design that best matches the research questions.
+
+Figure~\ref{fig:process} summarises the research process. The process follows the search, appraisal, synthesis and analysis steps of the SALSA framework \parencite{grant2009}, adds planning and selection as separate phases and assigns a documented output to every phase. These outputs allow another researcher to retrace and repeat each step of the review.
+
+\begin{figure}[htbp]
+\centering
+\caption{Research process of the structured literature review}
+\label{fig:process}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  phase/.style={draw, thick, rounded corners=3pt, fill=nBlueL, text width=5.4cm, minimum height=0.9cm, align=left, inner sep=3pt},
+  outp/.style={draw, rounded corners=2pt, text width=5.4cm, minimum height=0.9cm, align=left, inner sep=4pt},
+  salsa/.style={draw, circle, fill=nSage, minimum size=0.75cm, inner sep=0pt, font=\scriptsize\bfseries},
+  arr/.style={-{Stealth[length=2.2mm]}, thick},
+  lnk/.style={-{Stealth[length=1.8mm]}, densely dashed}]
+  \node[phase] (p1) {\textbf{1\quad Planning}\\ research questions, hypotheses, review protocol, scoping search};
+  \node[phase, below=0.28cm of p1] (p2) {\textbf{2\quad Search}\\ OpenAlex database search, benchmark test};
+  \node[phase, below=0.28cm of p2] (p3) {\textbf{3\quad Selection}\\ duplicate removal, two screening runs, evidence tiers};
+  \node[phase, below=0.28cm of p3] (p4) {\textbf{4\quad Appraisal and extraction}\\ nine quality criteria, extraction with verification};
+  \node[phase, below=0.28cm of p4] (p5) {\textbf{5\quad Synthesis}\\ evidence categories and decision rules};
+  \node[phase, below=0.28cm of p5] (p6) {\textbf{6\quad Analysis}\\ interpretation and comparison with the literature};
+  \foreach \a/\b in {p1/p2,p2/p3,p3/p4,p4/p5,p5/p6} \draw[arr] (\a) -- (\b);
+  \node[outp, right=1.0cm of p1] (o1) {Chapters~\ref{ch:intro} and~\ref{ch:litreview}; review design (Section~\ref{sec:design})};
+  \node[outp, right=1.0cm of p2] (o2) {Search strings and search log (Appendix~\ref{AppendixA})};
+  \node[outp, right=1.0cm of p3] (o3) {Screening decisions with reasons; flow diagram (Chapter~\ref{ch:analysis})};
+  \node[outp, right=1.0cm of p4] (o4) {Quality ratings and extraction forms (Appendix~\ref{AppendixB}); study matrix (Chapter~\ref{ch:analysis})};
+  \node[outp, right=1.0cm of p5] (o5) {Evidence matrix and judgement for each hypothesis (Chapter~\ref{ch:analysis})};
+  \node[outp, right=1.0cm of p6] (o6) {Discussion and revised model (Chapter~\ref{ch:analysis}); conclusions (Chapter~\ref{ch:conclusion})};
+  \foreach \p/\o in {p1/o1,p2/o2,p3/o3,p4/o4,p5/o5,p6/o6} \draw[lnk] (\p) -- (\o);
+  \node[salsa, left=0.35cm of p2] {S};
+  \node[salsa, left=0.35cm of p4] {AL};
+  \node[salsa, left=0.35cm of p5] {S};
+  \node[salsa, left=0.35cm of p6] {A};
+  \node[above=0.1cm of p1, font=\footnotesize\bfseries] (h1) {Research phase};
+  \node[font=\footnotesize\bfseries] at (h1 -| o1) {Documented output};
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work; the circles mark the search (S), appraisal (AL), synthesis (S) and analysis (A) steps of the SALSA framework \parencite{grant2009}.}
+\end{figure}
+
+The unit of analysis of the thesis is the firm (Section~\ref{sec:scope}). The unit of observation is the reported result, that is, each relationship between an AI construct, dynamic capabilities and a firm-level outcome that an included study reports. Because studies cannot be sampled at random from a known population, the selection of studies is criterion-based and therefore non-probabilistic. Its quality depends on how transparently the critical choices in the selection process are made and documented \parencite{hiebl2023}.
+
+% ------------------------------------------------------------
+\section{Search and Selection}
+\label{sec:searchselect}
+
+In a literature review, the search and the selection of studies take the place of sampling in empirical research. They determine which evidence enters the analysis and therefore which conclusions are possible. Two decisions are central: where to search for studies, and which of the studies found are eligible. Both decisions have to be documented in enough detail to allow another researcher to repeat them, because a review whose evidence base cannot be reconstructed cannot be checked. The following subsections describe the search strategy and the criteria used to select studies.
+
+\subsection{Search Strategy}
+\label{sec:search}
+
+The choice of search systems determines which studies a review can find. \textcite{gusenbauer2020} compared 28 academic search systems and found substantial differences in their precision, recall and reproducibility. Only half of the systems could be recommended for evidence syntheses without substantial caveats, and Google Scholar proved inappropriate as a principal search system. The search was therefore carried out in OpenAlex, an open bibliographic database that supports Boolean queries on titles and abstracts through a documented interface. Because its data are freely available, a search in OpenAlex can be reproduced by others without licensing barriers, and its reference coverage has been found comparable to that of Web of Science and Scopus \parencite{culbert2025}. The same comparison shows, however, that OpenAlex contains fewer abstracts, a limitation discussed in Section~\ref{sec:limitations}.
+
+The search string combines three blocks of terms with the Boolean operator AND. The first block covers AI (\textit{artificial intelligence}, \textit{machine learning}, \textit{AI}), the second covers capabilities (\textit{capability}, \textit{capabilities}, \textit{sensing}, \textit{seizing}, \textit{reconfiguring}, \textit{reconfiguration}) and the third covers outcomes (\textit{competitive advantage}, \textit{firm performance}, \textit{organisational performance}, \textit{competitive performance}). Terms within each block are combined with OR and searched in titles and abstracts; OpenAlex applies word stemming, so that grammatical variants are found without wildcards. Context terms such as \textit{e-commerce} or \textit{platform} are deliberately not used as a filter, because Chapter~\ref{ch:litreview} showed that most of the relevant evidence comes from other settings; the context of each study is instead recorded during data extraction.
+
+The search is limited to journal articles in English published from January 2015 onwards. This start date reflects that research on the strategic use of AI has grown mainly over the last decade, driven by advances in machine learning \parencite{borges2021}. No subject-area filter is applied. A test showed that the automatic subject classification of OpenAlex assigns at least one central study, \textcite{chen2022}, to computer science, so that a filter for business and management would have excluded it. Before the main search, the string was tested against known relevant studies, and it retrieved all three of them: \textcite{mikalef2021ai}, the study by Chen and colleagues mentioned above, and \textcite{shao2026}. The exact query, the search date and the number of records are documented in Appendix~\ref{AppendixA}. Duplicates are removed by OpenAlex identifier, DOI and normalised title.
+
+Backward and forward citation searching of the included studies was planned as a supplementary step. It identified 678 further records that were not part of the database search, but these records could not be screened within the time available for this thesis. They are therefore not part of the evidence base, and this omission is treated as a limitation (Section~\ref{sec:limitations}).
+
+\subsection{Inclusion and Exclusion Criteria}
+\label{sec:criteria}
+
+Studies are selected against the criteria in Table~\ref{tab:criteria}. The criteria define which publication types, languages, periods, study types, constructs, units of analysis and data qualify a study for inclusion, and every exclusion is linked to a reason code (E1--E7).
+
+\begin{table}[htbp]
+\centering
+\caption{Inclusion and exclusion criteria}
+\label{tab:criteria}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Criterion} & \textbf{Inclusion} & \textbf{Exclusion (reason code)} \\
+\hline
+Publication type & Peer-reviewed journal articles, including articles published online first & Conference papers, working papers, preprints, theses, books and practitioner reports (E1) \\ \hline
+Language & English & Other languages (E2) \\ \hline
+Period & January 2015 to the date of the search & Published before 2015 (E3) \\ \hline
+Study type & Empirical studies (quantitative, qualitative or mixed methods); conceptual studies are retained as Tier~3 context & Literature reviews, bibliometric studies, editorials, commentaries and book reviews (E4) \\ \hline
+Constructs & An organisational AI construct (AI capability, integration, assimilation, use or competencies) and at least one of: dynamic capabilities or one of their dimensions, competitive advantage & AI studied only as a technology or adoption decision, or neither dynamic capabilities nor competitive advantage examined, including studies of firm performance only (E5) \\ \hline
+Unit of analysis & Firm, organisation or business unit & Individuals, industries or countries; relevant studies may be retained as Tier~3 context (E6) \\ \hline
+Data & Published findings with a reported analysis & Data sets without a peer-reviewed analysis (E7) \\ \hline
+Context & Any industry and country; e-commerce and platform-based businesses are flagged & -- \\
+\hline
+\end{tabularx}
+\source{author's own work.}
+\end{table}
+
+Two of these decisions require explanation. First, the evidence base is restricted to peer-reviewed journal articles. Grey literature can increase the relevance of reviews in management research \parencite{adams2017}, but conference papers, working papers and deposited data sets have not passed peer review, and their results cannot be appraised on the same basis as published findings. Such material may be used as context, but it is not counted as evidence. Second, the construct criterion is broader than the hypotheses on the side of AI but narrower on the side of outcomes. Studies of AI integration, assimilation or use are included, but classified as indirectly relevant evidence (Section~\ref{sec:synthesis}), so that their inclusion does not overstate the support for the hypotheses. Studies that relate AI only to firm performance are excluded, because they examine neither the dependent variable nor the proposed mechanism of the thesis (Section~\ref{sec:sca}); this criterion was fixed before screening began, after a scoping search showed that performance-only studies would otherwise dominate the evidence base. Studies that examine dynamic capabilities and firm performance together are retained, with performance treated as indirectly relevant for competitive advantage. A construct is treated as a dynamic capability when the study measures it and its authors explicitly define it as a dynamic capability or as one of its dimensions, as in the case of supply chain resilience or dynamic managerial capability. Four included studies meet the construct criterion only in this sense; they are marked in Appendix~\ref{AppendixC}, and their results are classified as related capabilities rather than as dynamic capabilities in the synthesis.
+
+Screening proceeds in two stages, as shown in Figure~\ref{fig:screening}. After duplicates have been removed, titles and abstracts are screened against the criteria, and the remaining records are assessed in full text. Every full-text exclusion is recorded with its reason code, so that the selection can be reported in a PRISMA 2020 flow diagram in Chapter~\ref{ch:analysis} \parencite{page2021}. Following the PRISMA format for reporting does not by itself make a review systematic; the systematic character of the review rests on the procedures described in this chapter.
+
+\begin{figure}[htbp]
+\centering
+\caption{Screening stages and evidence tiers}
+\label{fig:screening}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  box/.style={draw, rounded corners=2pt, fill=nBlueL, text width=6.2cm, minimum height=0.8cm, align=center, inner sep=3pt},
+  src/.style={draw, rounded corners=2pt, fill=nBlueL, text width=2.9cm, minimum height=0.9cm, align=center, inner sep=3pt},
+  side/.style={draw, rounded corners=2pt, text width=3.1cm, minimum height=0.8cm, align=center, inner sep=3pt},
+  tier/.style={draw, thick, rounded corners=2pt, fill=nSage, text width=3.3cm, minimum height=1.3cm, align=center, inner sep=3pt},
+  arr/.style={-{Stealth[length=2.2mm]}, thick}]
+  \node[src] (db) {Records from OpenAlex};
+  \node[src, right=0.4cm of db, dashed, fill=white] (cs) {Records from citation searching (not screened)};
+  \coordinate (mid) at ($(db.south)!0.5!(cs.south)$);
+  \node[box, below=0.6cm of mid] (dup) {Removal of duplicates};
+  \draw[arr] (db.south) -- (db.south |- dup.north);
+  \draw[arr, dashed] (cs.south) -- (cs.south |- dup.north);
+  \node[box, below=0.45cm of dup] (ta) {Title and abstract screening (Table~\ref{tab:criteria})};
+  \node[side, right=0.6cm of ta] (ex1) {Records excluded};
+  \node[box, below=0.45cm of ta] (ft) {Full-text assessment (Table~\ref{tab:criteria})};
+  \node[side, right=0.6cm of ft] (ex2) {Full texts excluded, with reason codes E1--E7};
+  \node[box, below=0.45cm of ft] (as) {Assignment to evidence tiers};
+  \draw[arr] (dup) -- (ta);
+  \draw[arr] (ta) -- (ft);
+  \draw[arr] (ft) -- (as);
+  \draw[arr] (ta) -- (ex1);
+  \draw[arr] (ft) -- (ex2);
+  \node[tier, below=0.8cm of as] (t2) {\textbf{Tier 2}\\ studies of at least one hypothesised link};
+  \node[tier, left=0.3cm of t2] (t1) {\textbf{Tier 1}\\ full-model studies: AI, dynamic capabilities and outcome};
+  \node[tier, right=0.3cm of t2, fill=white, dashed] (t3) {\textbf{Tier 3}\\ conceptual and contextual studies};
+  \coordinate (sp) at ($(as.south)+(0,-0.4)$);
+  \draw[thick] (as.south) -- (sp);
+  \draw[arr] (sp) -| (t1.north);
+  \draw[arr] (sp) -- (t2.north);
+  \draw[arr] (sp) -| (t3.north);
+  \coordinate (t12) at ($(t1.south)!0.5!(t2.south)$);
+  \node[box, below=0.7cm of t12] (qa) {Quality appraisal (Table~\ref{tab:quality}) and data extraction (Appendix~\ref{AppendixB})};
+  \draw[arr] (t1.south) -- (t1.south |- qa.north);
+  \draw[arr] (t2.south) -- (t2.south |- qa.north);
+  \node[box, below=0.45cm of qa] (syn) {Synthesis by hypothesis (Table~\ref{tab:rules})};
+  \draw[arr] (qa) -- (syn);
+  \node[side, below=0.7cm of t3] (bg) {Context for interpretation, not counted as evidence};
+  \draw[arr, dashed] (t3) -- (bg);
+  \foreach \nd/\lab in {db/Identification, ta/Screening, ft/Eligibility, t1/Inclusion}
+    \node[font=\scriptsize\bfseries, anchor=east] at ($(\nd.west -| t1.west)+(-0.15,0)$) {\lab};
+\end{tikzpicture}
+\end{adjustbox}
+\source{author's own work; the stages follow the PRISMA 2020 flow diagram \parencite{page2021}.}
+\end{figure}
+
+The included studies are assigned to three evidence tiers (Figure~\ref{fig:screening}). Tier~1 contains full-model studies that examine an AI construct, dynamic capabilities and an outcome together. Tier~2 contains studies that examine at least one hypothesised link, such as the relationship between AI capability and dynamic capabilities. Tier~3 contains conceptual and contextual studies, which help to interpret the findings but are not counted as evidence for or against a hypothesis. Publications based on the same sample are linked and treated as one source of evidence.
+
+Because the review is conducted by a single researcher, screening and data extraction were supported by a large language model (Claude, Anthropic), applied with written instructions that reproduce the criteria in Tables~\ref{tab:criteria} and~\ref{tab:quality}. At the title and abstract stage, each record was classified in two separate runs of the language model. Both runs used identical instructions, and neither had access to the other's output. No second human reviewer was involved, so the two runs are not independent reviewers in the usual sense; they are two repeated classifications by the same model. The inclusion decision was then derived from each run's classification by fixed rules rather than by the model. Where the two runs led to different decisions, a third run of the model, with more detailed instructions, classified the record again, and its classification was used. At the full-text stage, every extraction was checked against the source in a separate verification run that corrected unsupported entries; every reported result had to be backed by a verbatim quotation from the accessible source text. All inclusion decisions and extracted results remain subject to checking by the author against the original papers; where only an abstract was accessible, such a check is limited to the abstract (Section~\ref{sec:limitations}).
+% AUTHOR: Update this sentence once the manual check of all 120 inclusion decisions and
+% extracted results against the original papers has been completed and documented. Chapter~\ref{ch:analysis} reports the agreement between the two screening runs as Cohen's kappa, calculated on the binary include or exclude decision for all screened records. This statistic measures the consistency of the model across repeated runs, not agreement between human reviewers.
+
+% ------------------------------------------------------------
+\section{Appraisal and Synthesis}
+\label{sec:appsyn}
+
+Once the relevant studies have been identified, two further steps turn them into evidence. Quality appraisal establishes how far each study's results can be trusted, and synthesis combines the results across studies into a judgement on each hypothesis. The distinction matters because relevance and quality are different properties: a study can address exactly the relationship of interest and still provide weak evidence, for example if its design cannot rule out alternative explanations. The following subsections explain how quality is assessed and data are extracted, and how the evidence is synthesised into judgements.
+
+\subsection{Quality Appraisal and Data Extraction}
+\label{sec:appraisal}
+
+The weight of a review's conclusions depends on the quality of the studies it includes. In a review of 391 systematic reviews in management research, \textcite{rojon2021} found that authors paid more attention to explaining their protocol and search strategy than to the analysis and synthesis of the included studies' findings. This chapter therefore specifies the appraisal and the synthesis as precisely as the search.
+
+Some guides for management reviews use lists of highly ranked journals as a basis for quality appraisal \parencite{kraus2020}. A journal's ranking says little about the design of an individual study, however, so this thesis appraises each study directly. The appraisal draws on the Mixed Methods Appraisal Tool (MMAT), which provides core quality criteria for qualitative, quantitative and mixed methods designs and can therefore be applied to both the survey and the case study evidence identified in Chapter~\ref{ch:litreview} \parencite{hong2018}. These general criteria are supplemented by criteria that matter specifically for the hypotheses of this thesis. Table~\ref{tab:quality} lists the nine resulting criteria.
+
+\begin{table}[htbp]
+\centering
+\caption{Quality appraisal criteria}
+\label{tab:quality}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|p{0.6cm}|>{\raggedright\arraybackslash}p{2.3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.1cm}|>{\raggedright\arraybackslash}p{2.4cm}|}
+\hline
+\textbf{No.} & \textbf{Criterion} & \textbf{Guiding question} & \textbf{Applies to} & \textbf{Basis} \\
+\hline
+Q1 & Research question and theory & Is the research question clearly stated and grounded in theory? & All studies & \textcite{hong2018} \\ \hline
+Q2 & Sampling & Is the sample appropriate for the research question, and are response rates and non-response bias reported? & Quantitative studies & \textcite{hong2018} \\ \hline
+Q3* & Measurement validity & Are the constructs measured reliably and validly, and is it clear which AI construct is measured? Are higher-order constructs specified and validated correctly? & Quantitative studies & \textcite{hong2018}; \textcite{sarstedt2019} \\ \hline
+Q4* & Common method bias & Do predictors and outcomes come from different sources or points in time, or are other remedies applied and reported? & Survey studies & \textcite{podsakoff2024} \\ \hline
+Q5 & Temporal ordering & Are the measures separated in time, for example in a time-lagged or longitudinal design? & Quantitative studies & \textcite{hill2021}; \textcite{rohrer2022} \\ \hline
+Q6* & Indirect effects & Is the indirect effect estimated directly, for example with bootstrapped confidence intervals, rather than inferred from separate paths? & Studies of mediation & \textcite{zhao2010} \\ \hline
+Q7 & Alternative explanations & Are relevant control variables included, or methods used to address endogeneity? & Quantitative studies & \textcite{hill2021} \\ \hline
+Q8* & Qualitative rigour & Are the data sources, the analysis and the interpretation adequate and coherent? & Qualitative and case studies & \textcite{hong2018} \\ \hline
+Q9 & Reporting & Are coefficients, measures of uncertainty and sample details reported in enough detail for extraction? & All studies & Author's addition \\
+\hline
+\end{tabularx}
+\par\smallskip
+{\footnotesize\raggedright Rating: each criterion is rated as met, partly met, not met or not applicable. Overall quality is \textit{high} if all applicable key criteria (*) are met and no more than one other applicable criterion is not met, \textit{low} if any applicable key criterion is not met, and \textit{moderate} otherwise.\par}
+\source{author's own work, based on the sources listed in the table.}
+\end{table}
+
+The criteria marked as key criteria in Table~\ref{tab:quality} address the main threats identified in Chapter~\ref{ch:litreview}. Measurement validity (Q3) matters because the studies define AI capability in different ways (Section~\ref{sec:aicap}); for H6, it also covers whether dynamic capabilities are correctly specified and validated as a higher-order construct \parencite{sarstedt2019}. Common method bias (Q4) matters because most studies collect predictors and outcomes from the same managers at the same time. Such bias has multiple sources, arises under widespread conditions and is not easy to fix \parencite{podsakoff2024}; statistical tests applied after data collection are therefore rated as partly met at most. The estimation of indirect effects (Q6) matters because mediation should be established by testing the indirect effect itself rather than by a sequence of separate significance tests \parencite{zhao2010}. Criteria Q5 and Q7 address temporal ordering and alternative explanations, because endogeneity threatens causal claims in management research \parencite{hill2021} and standard mediation models rest on assumptions that cross-sectional data rarely satisfy \parencite{rohrer2022}. For qualitative studies, rigour of data collection and analysis (Q8) is the key criterion.
+
+Each criterion is rated as met, partly met, not met or not applicable, and the ratings for every study are reported in Chapter~\ref{ch:analysis}. Rather than summing the ratings into a score, the overall quality of a study is derived from the explicit rule stated below Table~\ref{tab:quality}.
+
+Data are extracted with a standard form, which is shown in Appendix~\ref{AppendixB}. For each study, the form records the source and any linked publications; the country, the industry and whether the study concerns e-commerce or platform-based business; the design, sample and method of analysis; and the exact constructs and measures used. For each hypothesised path, it records the direction of the relationship, the coefficient or effect size, the reported uncertainty and whether the result is a direct association or an estimated indirect effect. The outcome is classified as firm performance, competitive advantage or the persistence of competitive advantage, as required by Section~\ref{sec:sca}. The extracted data form the study matrix and the evidence matrix in Chapter~\ref{ch:analysis}.
+
+\subsection{Synthesis and Decision Rules}
+\label{sec:synthesis}
+
+Because the constructs, contexts and designs of the included studies differ, their results are not pooled statistically. A narrative synthesis nevertheless requires explicit methods. The Synthesis Without Meta-analysis (SWiM) guideline sets out nine reporting items for reviews in which effect estimates cannot be combined, including how studies are grouped, which synthesis method is used and how heterogeneity and the certainty of the evidence are addressed \parencite{campbell2020}. Although SWiM was developed for reviews of interventions, its items provide a useful structure for this thesis. Studies are grouped by hypothesis, the synthesis is based on the direction of the reported relationships and on whether an indirect effect was estimated, and differences in measurement, context and design are examined as possible explanations for divergent results.
+
+Table~\ref{tab:rules} defines the categories and decision rules before they are applied. At study level, each result is classified as directly reported, indirectly relevant or contradictory (Panel~A). At hypothesis level, the classified results are combined into one of five judgements, ranging from \textit{supported} to \textit{not yet examined} (Panel~B). Five general rules govern this step (Panel~C).
+
+\begin{table}[htbp]
+\centering
+\caption{Evidence categories and decision rules}
+\label{tab:rules}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}X|}
+\hline
+\multicolumn{2}{|l|}{\textbf{Panel A: Study-level evidence categories}} \\
+\hline
+Directly reported & The study reports the hypothesised relationship using the constructs of the hypothesis (AI capability or AI competencies; dynamic capabilities or one of their dimensions; competitive advantage); for H3 to H6, it reports an estimated indirect effect. \\ \hline
+Indirectly relevant & The study reports a related relationship, for example with AI integration, assimilation or use instead of AI capability, with firm performance instead of competitive advantage, with a mediator related to but not identical with a dimension of dynamic capabilities, or with mediation inferred from separate paths. \\ \hline
+Contradictory & The study reports a null result or a relationship in the opposite direction. \\ \hline
+No eligible evidence & No included study addresses the relationship. \\
+\hline
+\multicolumn{2}{|l|}{\textbf{Panel B: Hypothesis-level judgements}} \\
+\hline
+Supported & At least two independent studies report the relationship directly and in the hypothesised direction; at least one of them is of moderate or high quality and comes from e-commerce or platform-based business; no contradictory direct evidence of equal or higher quality exists. \\ \hline
+Partly supported & Supporting evidence exists but does not meet the criteria for \textit{supported}, for example direct evidence from only one independent study, mainly indirectly relevant evidence or support only from other contexts. \\ \hline
+Inconclusive & Supporting and contradictory direct evidence of similar quality exist, and the differences cannot be explained by measurement, context or design. \\ \hline
+Contradicted & Contradictory direct evidence predominates among studies of moderate or high quality. \\ \hline
+Not yet examined & No eligible evidence exists. \\
+\hline
+\multicolumn{2}{|l|}{\textbf{Panel C: General rules}} \\
+\hline
+Independence & Publications based on the same sample count as one study. \\ \hline
+Quality & Studies of low quality are reported, but cannot on their own establish \textit{supported} or \textit{contradicted}. \\ \hline
+Outcome & Results for firm performance count as indirectly relevant for sustainable competitive advantage. \\ \hline
+Assignment & Separate indirect effects for sensing, seizing or transforming count for H3 to H5; an overall indirect effect counts for H6; no estimate counts for both. \\ \hline
+Context & Without direct evidence of at least moderate quality from e-commerce or platform-based business, the judgement is at most \textit{partly supported}. \\
+\hline
+\end{tabularx}
+\source{author's own work, informed by \textcite{campbell2020} and \textcite{zhao2010}.}
+\end{table}
+
+Three of the general rules address problems identified in Chapter~\ref{ch:litreview}. The independence rule ensures that studies based on the same sample, such as the two studies by Almheiri and colleagues, count only once (Section~\ref{sec:evidence}). The assignment rule separates H3 to H5 from H6, so that the same estimate never counts in support of both specifications (Section~\ref{sec:model}). The context rule keeps the conclusions within the scope of the thesis: because the hypotheses concern e-commerce and platform-based business, a hypothesis can only be judged \textit{supported} if direct evidence of at least moderate quality comes from this context. Otherwise, the judgement is limited to \textit{partly supported}, together with the note that support comes from other settings.
+
+Where studies disagree, the differences are first examined in terms of measurement, context and design. A hypothesis is judged \textit{inconclusive} only if the disagreement cannot be explained in this way and the conflicting studies are of similar quality. Each judgement is reported together with the quality ratings of the underlying studies, so that the reader can see both the direction and the strength of the evidence.
+
+% ------------------------------------------------------------
+\section{Research Quality and Ethics}
+\label{sec:quality}
+
+The SRH guidelines require research to be transparent and repeatable. \textcite{martensson2016} describe the quality of research practice in four main areas: credible, contributory, communicable and conforming. These areas structure the quality measures of this thesis. Credibility is supported by the explicit criteria and decision rules, by the appraisal of every included study whose full text was accessible and by the second screening run. The contribution lies in assessing the evidence relationship by relationship, which addresses the research gap identified in Section~\ref{sec:gap}. Communicability is supported by reporting the selection in a PRISMA 2020 flow diagram \parencite{page2021}, by following the SWiM items for the synthesis \parencite{campbell2020} and by documenting the search and the extraction in Appendices~\ref{AppendixA} and~\ref{AppendixB}. This documentation allows another researcher to repeat the review, in line with the aim of transparent and reproducible synthesis that underlies systematic reviews in management \parencite{tranfield2003}. Conformity is addressed by following the SRH guidelines and the ethical principles described below.
+
+The thesis is based exclusively on published studies. No participants were contacted and no personal data were collected or processed, so the research does not raise the ethical issues associated with human participants. Its main ethical obligations concern the treatment of the literature. Findings are reported accurately and completely, including null and contradictory results, and studies are not selected or interpreted in order to confirm the hypotheses. All sources are cited in accordance with the SRH guidelines, and the digital tools used are disclosed: the search was run through the OpenAlex API with the query documented in Appendix~\ref{AppendixA}, and screening and extraction were supported by a large language model as described in Section~\ref{sec:criteria}. Responsibility for every decision and every statement in the thesis remains with the author.
+
+% ------------------------------------------------------------
+\section{Methodological Limitations}
+\label{sec:limitations}
+
+The chosen design has several limitations. First, the review is conducted by a single researcher with the support of a language model. Two separate screening runs, fixed decision rules and a separate verification run reduce the risk of selection and extraction errors, but they cannot remove it. Because both runs come from the same model, they may share the same systematic misreadings, which a high agreement between them would not reveal. Second, the search is limited to one database, to journal articles in English and to the period from 2015 onwards, and the citation searching could not be completed. Relevant studies in other languages, in journals with incomplete records in OpenAlex or in the grey literature may therefore be missed. Because studies with significant results are more likely to be published, the restriction to journal articles may also favour supporting evidence, and this possibility is considered when the findings are interpreted. Third, the full text of many included studies is not openly accessible. For these studies, eligibility and data extraction rely on the abstract, and their methodological quality cannot be assessed. For nine included studies, the database record contained no abstract and no full text was accessible; they were retained provisionally on the basis of their titles, contribute no extracted results and are marked in Appendix~\ref{AppendixC}. Their eligibility remains to be confirmed against the full texts.
+
+Fourth, the review cannot overcome the limitations of the primary studies. If most of them rely on cross-sectional surveys of single respondents, the review inherits their vulnerability to common method bias and endogeneity \parencite{podsakoff2024, hill2021}. Its conclusions are therefore stated as associations, not as causal effects. Fifth, assigning heterogeneous constructs, such as agility or business model innovation, to the dimensions of dynamic capabilities requires judgement. These decisions are recorded in the extraction forms, so that they can be checked. Sixth, the synthesis is based mainly on the direction of effects. It gives less weight to their size and produces no new estimates of the relationships. Finally, the field is developing quickly, particularly with the spread of generative AI, so the evidence base may change soon after the search.
+
+% ------------------------------------------------------------
+\section{Chapter Summary}
+\label{sec:ch3summary}
+
+This chapter has described the research design of the thesis. Following a post-positivist and deductive logic, the thesis uses a structured literature review to assess how far published evidence supports the six hypotheses developed in Chapter~\ref{ch:litreview}. The review searches OpenAlex, applies explicit inclusion and exclusion criteria in two separate model-supported screening runs, appraises each study against nine quality criteria and synthesises the evidence narratively using predefined categories and decision rules.
+
+These procedures are designed to make the review transparent and repeatable and to keep its conclusions within the limits of the underlying evidence. The following chapter applies them. It reports the results of the search and selection, describes the characteristics and quality of the included studies and assesses the evidence for each hypothesis.

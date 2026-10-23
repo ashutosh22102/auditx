@@ -1,0 +1,76 @@
+{
+ "changes": [
+  {
+   "study": "W7203683920",
+   "author_year": "Almheiri 2026",
+   "field": "same_sample_as",
+   "old": "W4405869520",
+   "new": null,
+   "reason": "Incorrect same-sample link to the Almheiri 2024/2025 public-manager sample.",
+   "evidence": "OpenAlex abstract of W7203683920: survey data from 400 hotel managers in the UAE; abstracts of W4391349566 and W4405869520: 344 public managers. Different populations and sample sizes.",
+   "status": "confirmed (abstract level)"
+  },
+  {
+   "study": "W4399818168",
+   "author_year": "Mukhopadhyay 2024",
+   "field": "overall_quality",
+   "old": "moderate",
+   "new": "not assessable",
+   "reason": "Rated 'moderate' although fulltext_used=False; Section 3.5 states that the quality of abstract-only studies cannot be assessed.",
+   "evidence": "included_final.json: fulltext_used=false; every other appraised study used the full text.",
+   "status": "confirmed (rule consistency)"
+  },
+  {
+   "study": "W7165059244",
+   "author_year": "Li 2026",
+   "field": "categories",
+   "old": {
+    "H2": [
+     "indirectly relevant"
+    ],
+    "H6": [
+     "indirectly relevant"
+    ]
+   },
+   "new": {
+    "H2": [
+     "indirectly relevant"
+    ],
+    "H4": [
+     "indirectly relevant"
+    ],
+    "H5": [
+     "indirectly relevant"
+    ]
+   },
+   "reason": "Apply Panel A and the assignment rule as for Noor 2026 (H3): an estimated indirect effect through a mediator that the study itself assigns to one DC dimension is 'indirectly relevant' for that dimension's hypothesis; such estimates are not also counted for H6 ('no estimate counts for both').",
+   "evidence": "Abstract of Li 2026 frames absorptive capacity as 'a central seizing capability' and entrepreneurial opportunity recognition as 'a transforming pathway'; extraction records specific indirect effects 0.067 and 0.057 (full-text values, not verified by the auditor).",
+   "status": "rule consistency; estimates unverified"
+  }
+ ],
+ "title_only": [
+  "W4297818236",
+  "W7160242550",
+  "W4410909065",
+  "W7167897762",
+  "W7155616187",
+  "W7202270649",
+  "W7142955946",
+  "W4388484005",
+  "W4410344678"
+ ],
+ "e5_borderline": [
+  "W7165059244",
+  "W7203698327",
+  "W4400015499",
+  "W4389778619"
+ ],
+ "provisional_h1": [
+  "giang2026",
+  "waqas2024",
+  "almereb2026",
+  "almamary2025",
+  "gafsi2026",
+  "firmansyah2025"
+ ]
+}

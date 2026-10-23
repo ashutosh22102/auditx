@@ -1,0 +1,14 @@
+audit_workspace/extracted/
+backups/
+thesis_corrected/**/*.aux
+thesis_corrected/**/*.log
+thesis_corrected/**/*.bbl
+thesis_corrected/**/*.bcf
+thesis_corrected/**/*.blg
+thesis_corrected/**/*.run.xml
+thesis_corrected/**/*.out
+thesis_corrected/**/*.toc
+thesis_corrected/**/*.lof
+thesis_corrected/**/*.lot
+thesis_corrected/**/biber.out
+thesis_corrected/**/.DS_Store
