@@ -1,0 +1,4 @@
+quotes: 248
+Counter({'verbatim in abstract': 161, 'not in abstract': 84, 'near-verbatim in abstract': 3})
+by fulltext_used:
+Counter({(False, 'verbatim in abstract'): 157, (True, 'not in abstract'): 84, (True, 'verbatim in abstract'): 4, (True, 'near-verbatim in abstract'): 2, (False, 'near-verbatim in abstract'): 1})

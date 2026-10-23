@@ -1,0 +1,183 @@
+NOTE (auditor): some 'DIFFERS' flags below are string-format artefacts of comparing a dict with the thesis text
+(AI construct, overall quality, Tier 1 quality, AI->CA direction all match). Real discrepancies are interpreted in DATA_RECONCILIATION.md.
+
+
+## A. Identification and de-duplication
+Lines in records.jsonl                                                 1807  [thesis: 1807] OK
+Unique OpenAlex IDs in records.jsonl                                   1806
+Records in ta_final.json (screened)                                    1797  [thesis: 1797] OK
+Records not carried into screening (duplicates removed)                10  [thesis: 10] OK
+  of which unique IDs absent from ta_final                             9
+  of which repeated OpenAlex ID lines                                  1
+ta_final IDs absent from records.jsonl                                 0
+
+## B. Title/abstract screening
+Included at TA                                                         197  [thesis: 197] OK
+Excluded at TA                                                         1600  [thesis: 1600] OK
+  TA exclusions E5                                                     1032  [thesis: 1032] OK
+  TA exclusions E4                                                     413  [thesis: 413] OK
+  TA exclusions E1                                                     147  [thesis: 147] OK
+  TA exclusions E6                                                     8  [thesis: 8] OK
+  Other TA exclusion codes                                             {}
+Records where both runs agreed (source=agreed)                         1742
+Records resolved by third run (source=adjudicator)                     55  [thesis: 55] OK
+Adjudicated -> include / exclude                                       {'include': 27, 'exclude': 28}
+Run-level decisions stored for each pass?                              NO (only final decision + source flag)
+
+## C. Agreement statistic (consistency check only - paired run data absent)
+Observed agreement recomputed = agreed/screened                        0.969393  [thesis: 0.969393] OK
+Reported kappa (agreement.json)                                        0.843573
+Disagreement splits (run1-only incl, run2-only incl) reproducing kappa [(24, 31), (31, 24)]
+Kappa range over all possible splits                                   0.8436-0.8439
+
+## D. Eligibility (full-text) stage
+Studies in included_final.json                                         120  [thesis: 120] OK
+Included studies that were not TA-includes                             0
+TA-includes with no record in included_final (FT exclusions)           77  [thesis: 77] OK
+Exclusion reasons for these 77 stored in any file?                     NO
+Full-text vs abstract status for the 197 stored?                       NO (only for the 120 included)
+Included with fulltext_used = True                                     28
+Included with fulltext_used = False                                    92
+Included with no abstract in records.jsonl AND fulltext_used False     9
+    title-only: Hossain 2022 (W4297818236) Marketing analytics capability, artificial intelligence adoption, and 
+    title-only: Htet 2026 (W7160242550) Artificial intelligence (AI) and 21st-century sustainable marketing: A
+    title-only: Li 2025 (W4410909065) Leveraging generative AI capabilities for competitive advantage: A mod
+    title-only: Wu 2026 (W7167897762) How AI matters for competitive advantage: a managerial cognition persp
+    title-only: Anjum 2026 (W7155616187) From generative AI to sustainable performance: The mediating roles of 
+    title-only: Ramírez 2026 (W7202270649) Artificial intelligence and organisational performance in the tourism 
+    title-only: Amin 2026 (W7142955946) Harnessing artificial intelligence (AI) for innovation in family busin
+    title-only: Samadhiya 2023 (W4388484005) Artificial intelligence - partner relationships management for climate
+    title-only: Luo 2025 (W4410344678) ChatGPT’s infusion advantage: The moderating role of strategic agility
+
+## E. Independence of samples
+    same_sample_as link: ('W4391349566', 'Almheiri', 2024, 'W4405869520', 344)
+    same_sample_as link: ('W7203683920', 'Almheiri', 2026, 'W4405869520', 400)
+Independent samples if data links applied as stored                    118  [thesis: 118] OK
+Independent samples counting only the Almheiri 2024/2025 pair          119  [thesis: 118] DIFFERS
+
+## F. Study characteristics
+Design distribution                                                    {'conceptual': 25, 'mixed_methods': 13, 'cross_sectional_survey': 65, 'longitudinal_panel': 1, 'case_study': 2, 'time_lagged_survey': 1, 'other': 13}
+Empirical (non-conceptual) studies                                     95  [thesis: 95] OK
+Conceptual studies                                                     25  [thesis: 25] OK
+Cross-sectional surveys                                                65  [thesis: 65] OK
+Tier distribution                                                      {1: 22, 2: 73, 3: 25}  [thesis: {1: 22, 2: 73, 3: 25}] OK
+Tier 3 == conceptual?                                                  [((1, False), 22), ((2, False), 73), ((3, True), 25)]
+Year distribution                                                      {2021: 1, 2022: 3, 2023: 4, 2024: 18, 2025: 37, 2026: 57}
+Published 2024 or later                                                112  [thesis: 112] OK
+Published 2026                                                         57  [thesis: 57] OK
+AI construct                                                           {'capability': 46, 'use': 52, 'integration': 22}  [thesis: {'use': 52, 'capability': 46, 'integration': 22}] DIFFERS
+DC construct                                                           {'dimensions': 10, 'none': 34, 'related_only': 52, 'overall': 24}
+Outcome type                                                           {'competitive_advantage': 74, 'both': 20, 'firm_performance': 19, 'other': 7}
+Persistence measured                                                   ['Dzreke 2025']
+Distinct journals                                                      105  [thesis: 105] OK
+Max studies per journal                                                [('Industrial Marketing Management', 3), ('Journal of Innovation & Knowledge', 3), ('Journal of Enterprise Information Management', 3)]
+Empirical studies with numeric sample size                             80  [thesis: 80] OK
+Median sample size                                                     311.5  [thesis: 312] DIFFERS
+Sample size < 150                                                      16  [thesis: 16] OK
+analysis_method starting 'PLS-SEM'                                     39  [thesis: 39] OK
+analysis_method containing 'PLS'                                       40
+analysis_method containing 'CB-SEM'                                    9  [thesis: 9] OK
+Respondents containing 'multiple'                                      9  [thesis: 9] OK
+Country not reported (empirical)                                       28  [thesis: 30] DIFFERS
+Country not reported (all 120)                                         53
+Top countries (all studies, split on separators)                       [('China', 11), ('Indonesia', 5), ('Vietnam', 5), ('United Arab Emirates', 5), ('India', 4), ('Pakistan', 4), ('Jordan', 4), ('Europe', 2)]
+Studies with country containing 'China'                                11  [thesis: 10] DIFFERS
+
+## G. Quality appraisal
+Overall quality (all)                                                  {'n/a (conceptual)': 25, 'not assessable': 74, 'moderate': 9, 'low': 9, 'high': 3}
+Overall quality (empirical)                                            {'not assessable': 74, 'moderate': 9, 'low': 9, 'high': 3}  [thesis: 3 high, 9 moderate, 9 low, 74 n.a.] DIFFERS
+'not assessable' with fulltext_used False                              73  [thesis: 74] DIFFERS
+'not assessable' with fulltext_used True                               1
+Appraised empirical studies                                            21  [thesis: 21] OK
+Appraised with fulltext_used True                                      20
+Full text used but conceptual                                          7
+Tier 1 quality                                                         {'moderate': 4, 'low': 1, 'not assessable': 17}  [thesis: 4 moderate, 1 low, 17 n.a.] DIFFERS
+Q5 temporal ordering met (appraised studies)                           2  [thesis: 2] OK
+Q5 temporal ordering met (all studies)                                 2
+Q4 CMB met (appraised studies)                                         10  [thesis: 11] DIFFERS
+Q4 CMB met (all studies)                                               11
+Q6 indirect effect met (appraised studies)                             10  [thesis: 13] DIFFERS
+Q6 indirect effect met (all studies)                                   13
+Q2 sampling met (appraised studies)                                    3  [thesis: 3] OK
+Q2 sampling met (all studies)                                          3
+Q7 alternative explanations met (appraised studies)                    2  [thesis: 2] OK
+Q7 alternative explanations met (all studies)                          2
+Appraised studies whose rating differs from the stated rule            0
+
+## H. Hypothesis evidence categories (study-level)
+H1 studies per category (raw, 120 publications)                        {'indirectly relevant': 46, 'directly reported': 9, 'contradictory': 3}
+H1 per category (Almheiri pair collapsed)                              {'indirectly relevant': 46, 'directly reported': 9, 'contradictory': 3}
+H2 studies per category (raw, 120 publications)                        {'indirectly relevant': 43, 'directly reported': 4, 'contradictory': 1}
+H2 per category (Almheiri pair collapsed)                              {'indirectly relevant': 43, 'directly reported': 3, 'contradictory': 1}
+H3 studies per category (raw, 120 publications)                        {'indirectly relevant': 1}
+H3 per category (Almheiri pair collapsed)                              {'indirectly relevant': 1}
+H4 studies per category (raw, 120 publications)                        {}
+H4 per category (Almheiri pair collapsed)                              {}
+H5 studies per category (raw, 120 publications)                        {}
+H5 per category (Almheiri pair collapsed)                              {}
+H6 studies per category (raw, 120 publications)                        {'indirectly relevant': 53, 'contradictory': 1}
+H6 per category (Almheiri pair collapsed)                              {'indirectly relevant': 52, 'contradictory': 1}
+Studies with no hypothesis category                                    37
+  of which non-conceptual                                              [('Quoc', 2026, 'cross_sectional_survey'), ('Hossain', 2022, 'other'), ('Htet', 2026, 'other'), ('Li', 2025, 'other'), ('Wu', 2026, 'other'), ('Anjum', 2026, 'other'), ('Ramírez', 2026, 'other'), ('Samadhiya', 2023, 'other'), ('Black', 2024, 'case_study'), ('Haq', 2026, 'cross_sectional_survey'), ('Luo', 2025, 'other'), ('Darwish', 2025, 'cross_sectional_survey')]
+    H1 directly reported: ['Almereb2026(almereb2026,not assessable)', 'Al‐Mamary2025(almamary2025,not assessable)', 'Firmansyah2025(firmansyah2025,low)', 'Gafsi2026(gafsi2026,not assessable)', 'Giang2026(giang2026,not assessable)', 'Kim2026(kim2026,not assessable)', 'Shao2026(shao2026,not assessable)', 'Tu2026(tu2026,not assessable)', 'Waqas2024(waqas2024,not assessable)']
+    H1 contradictory: ['Chen2026(chen2026,not assessable)', 'Mashi2024(mashi2024,low)', 'Wang2026(wang2026,high)']
+    H2 directly reported: ['Almheiri2024(almheiri2024,not assessable)', 'Almheiri2024(almheiri2025,not assessable)', 'Fano2025(fano2025,not assessable)', 'Neira-Fernández2026(neirafernandez2026,not assessable)']
+    H2 contradictory: ['Sofiyan2026(sofiyan2026,not assessable)']
+    H3 indirectly relevant: ['Noor2026(noor2026,moderate)']
+    H6 contradictory: ['Kokash2026(kokash2026,not assessable)']
+High/moderate studies                                                  12  [thesis: 12] OK
+H/M with H1 indirectly relevant                                        8  [thesis: 8] OK
+H/M with H1 contradictory                                              1  [thesis: 1] OK
+Appraised with any H2 category                                         13  [thesis: 13] OK
+H/M with any H2 category                                               9  [thesis: 9] OK
+Appraised with H1 directly reported                                    ['Firmansyah']
+
+## I. Extracted paths
+AI->CA results                                                         70  [thesis: 70] OK
+AI->CA direction                                                       {'positive': 57, 'mixed': 5, 'negative': 1, 'null': 7}  [thesis: 57 positive, 7 null, 5 mixed, 1 negative] DIFFERS
+Studies with any indirect_* path                                       64
+  with an estimated indirect effect                                    13  [thesis: 13] OK
+  only inferred / untested mediation                                   51  [thesis: 38] DIFFERS
+Studies with DC dimensions                                             10  [thesis: 10] OK
+  by design                                                            {'conceptual': 4, 'mixed_methods': 2, 'cross_sectional_survey': 3, 'other': 1}  [thesis: 4 conceptual, 2 qual/mixed, 4 quantitative] DIFFERS
+    Wei 2025 None conceptual none
+    Arowolo 2026 None conceptual none
+    Maune 2026 None mixed_methods hierarchical regression (Baron and Kenny mediation); Gioia qualitative coding
+    Noor 2026 noor2026 cross_sectional_survey PLS-SEM
+    Fano 2025 fano2025 cross_sectional_survey PLS-SEM
+    Siaw 2024 None conceptual none
+    Feroz 2024 None mixed_methods qualitative coding
+    Neira-Fernández 2026 neirafernandez2026 cross_sectional_survey PLS-SEM
+    Karami 2026 None conceptual none
+    Ghobakhloo 2025 ghobakhloo2025 other Delphi consensus
+Dimension-level paths (study, path, type)                              [('Wei', 2025, 'AI->sensing', 'conceptual_proposition'), ('Wei', 2025, 'AI->seizing', 'conceptual_proposition'), ('Wei', 2025, 'AI->transforming', 'conceptual_proposition'), ('Arowolo', 2026, 'AI->sensing', 'conceptual_proposition'), ('Arowolo', 2026, 'AI->seizing', 'conceptual_proposition'), ('Arowolo', 2026, 'AI->transforming', 'conceptual_proposition'), ('Maune', 2026, 'AI->sensing', 'qualitative'), ('Noor', 2026, 'AI->sensing', 'direct_association'), ('Siaw', 2024, 'AI->sensing', 'conceptual_proposition'), ('Siaw', 2024, 'AI->seizing', 'conceptual_proposition'), ('Siaw', 2024, 'AI->transforming', 'conceptual_proposition'), ('Karami', 2026, 'AI->sensing', 'conceptual_proposition'), ('Karami', 2026, 'AI->seizing', 'conceptual_proposition'), ('Karami', 2026, 'AI->transforming', 'conceptual_proposition'), ('Ghobakhloo', 2025, 'AI->sensing', 'qualitative'), ('Ghobakhloo', 2025, 'AI->seizing', 'qualitative'), ('Ghobakhloo', 2025, 'AI->transforming', 'qualitative')]
+
+## J. Focal context (e-commerce / platform)
+context field                                                          {'none': 113, 'other_ecommerce_digital': 3, 'complementor': 1, 'ecommerce_retailer': 2, 'platform_owner': 1}
+Studies with focal/closely related context                             7  [thesis: 7] OK
+    Firmansyah 2025 firmansyah2025 context=other_ecommerce_digital quality=low design=cross_sectional_survey cats={'H1': ['directly reported']}
+    Guo 2025 guo2025 context=complementor quality=high design=cross_sectional_survey cats={'H1': ['indirectly relevant'], 'H2': ['indirectly relevant'], 'H6': ['indirectly relevant']}
+    Noor 2026 noor2026 context=ecommerce_retailer quality=moderate design=cross_sectional_survey cats={'H2': ['indirectly relevant'], 'H1': ['indirectly relevant'], 'H3': ['indirectly relevant'], 'H6': ['indirectly relevant']}
+    Adamu 2026 adamu2026 context=other_ecommerce_digital quality=moderate design=cross_sectional_survey cats={'H1': ['indirectly relevant']}
+    Awamleh 2022 awamleh2022 context=other_ecommerce_digital quality=not assessable design=cross_sectional_survey cats={'H6': ['indirectly relevant']}
+    Bunea 2026 bunea2026 context=ecommerce_retailer quality=not assessable design=mixed_methods cats={'H2': ['indirectly relevant'], 'H6': ['indirectly relevant']}
+    Dzreke 2025 dzreke2025b context=platform_owner quality=n/a (conceptual) design=conceptual cats={}
+TA classification ecommerce_platform=True among 197                    11
+  of which included                                                    4
+     W4292414416 True Examine the Mediating Role of the Information Technology Capabilities on the Relationship 
+     W4362648815 False Dynamic capabilities for value creation from AI innovation ecosystem: a comparison between
+     W4408614597 False Cost Reduction Strategies in Retail: Implementing AI-Driven Demand Forecasting for Invento
+     W4412675090 False Causal Factors of Competitive Advantages and Influencing the Performance of E-commerce in 
+     W4414301363 True Cross-border platforms’ coupling of artificial intelligence adoption and strategic agility
+     W7151358870 False Amazon’s Transformation through Emerging Technologies
+     W7152962451 False The role of human resource development and artificial intelligent (AI) in the competitive 
+     W7154468722 True When Does Artificial Intelligence Pay Off in Electronic Retailing? A Dual-Path Model from 
+     W7155507242 False INTEGRATED AI-DRIVEN MARKETING GROWTH MODELS FOR SCALING BUSINESSES IN COMPETITIVE DIRECT-
+     W7164429834 False Algorithm-Centric Business Development: Redefining Growth Strategies in AI-Dominated E-Com
+     W7221738716 True GENERATIVE AI AND ENTREPRENEURIAL MARKETING PERFORMANCE IN E-COMMERCE FIRMS
+
+## K. Citation search
+Backward + forward                                                     1003
+Unique                                                                 826
+New (not in database search)                                           678  [thesis: 678] OK
+Screening decisions stored for citation records?                       NO

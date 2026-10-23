@@ -1,0 +1,52 @@
+PDF pages: 93
+PASS present  119 independent studies (sec 4.1)                            pdf pages [45]
+PASS present  94 independent empirical samples (sec 4.1) = 94              pdf pages [45]
+PASS present  PRISMA box: 119 independent, 9 provisional                   pdf pages [46]
+PASS absent   superseded '118 independent samples'                         
+PASS present  access split 28/83/9 = {'full text': 28, 'abstract': 83, 'title only': 9} pdf pages [45]
+PASS present  quality 3/8/9 = {'not assessable': 75, 'moderate': 8, 'low': 9, 'high': 3} pdf pages [47]
+PASS present  75 not assessable                                            pdf pages [47]
+PASS present  n.a. breakdown 66/8/1 = {'full text, insufficient reporting': 1, 'title only': 8, 'abstract only': 66} pdf pages [47]
+PASS present  appraised = 20                                               pdf pages [48]
+PASS present  Q4/Q6 among appraised = 10/10                                pdf pages [48]
+PASS present  Tier 1 = {'moderate': 3, 'low': 1, 'not assessable': 18}     pdf pages [48]
+PASS present  H1 sensitivity 11 H/M, 7 indirect = 11/7                     pdf pages [52]
+PASS present  H2 sensitivity 12/8 = 12/8                                   pdf pages ['53-54']
+PASS present  H2 indirect 42 = {'indirectly relevant': 42, 'directly reported': 3, 'contradictory': 1} pdf pages [53]
+PASS present  RQ2 42                                                       pdf pages [67]
+PASS absent   superseded H2 '41 studies'                                   
+PASS present  H6 indirect 51 = {'indirectly relevant': 51, 'contradictory': 1} pdf pages [56]
+PASS present  RQ4 fifty-one                                                pdf pages [68]
+PASS absent   superseded H6 '52'                                           
+PASS present  Table 4.2 H2 row                                             pdf pages [59]
+PASS present  Table 4.2 H4 row = {'indirectly relevant': 1}                pdf pages [59]
+PASS present  Table 4.2 H5 row = {'indirectly relevant': 1}                pdf pages [59]
+PASS present  Table 4.2 H6 row                                             pdf pages [59]
+PASS absent   superseded Texeira moderator 'strategic flexibility'         
+PASS present  corrected Texeira moderator                                  pdf pages [56, 57, 59]
+PASS absent   superseded 'four of the six'                                 
+PASS absent   superseded 'direct effect disappears'                        
+PASS absent   superseded 'strongest studies' claim                         
+PASS absent   superseded 'only seven concern'                              
+PASS present  four empirical e-commerce/platform studies                   pdf pages [2, 64, 65]
+PASS absent   superseded country statement                                 
+PASS present  country 30 of 95 = 30                                        pdf pages [47]
+PASS absent   superseded 'almost all cross-sectional'                      
+PASS absent   superseded '74 of the 95'                                    
+PASS present  75 of the 95 (sec 5.4)                                       pdf pages [71]
+PASS absent   complementor evidence applied to platform firms              
+PASS absent   unsupported 'are checked by the author'                      
+PASS absent   undefined 're-screening check'                               
+PASS absent   unsupported 'documented script'                              
+PASS present  dimension studies: three quantitative                        pdf pages [54]
+PASS present  Appendix C missing author restored                           pdf pages [86]
+PASS absent   Appendix C '- et al.'                                        
+PASS present  declaration AI disclosure                                    pdf pages [93]
+PASS present  abstract judgement wording                                   pdf pages [2]
+PASS present  RQ4 higher-order statement (dc_order higher = 0)             pdf pages [68]
+PASS present  Almheiri 2024 citation                                       pdf pages [86]
+PASS present  Almheiri 2025 citation (Appendix C now matches bibliography) pdf pages [31, 86]
+PASS absent   unresolved references (?? or [?])                            
+PASS absent   undefined citations in text                                  
+
+PASS 49  FAIL 0

@@ -1,0 +1,31 @@
+% Appendix A
+%
+% The query below was run on 22 October 2026 through the OpenAlex API
+% (https://api.openalex.org/works). Re-running it later will return more records,
+% because OpenAlex is updated continuously.
+
+\chapter{Search Log}
+\label{AppendixA}
+
+This appendix documents the search described in Section~\ref{sec:search}. The query was run through the public interface of OpenAlex and searched titles and abstracts with word stemming. Table~\ref{tab:searchlog} reports the exact query, the limits, the date and the number of records.
+
+\begin{table}[htbp]
+\centering
+\caption{Search query and search log}
+\label{tab:searchlog}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.0cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.9cm}|>{\raggedright\arraybackslash}p{1.6cm}|>{\raggedright\arraybackslash}p{1.6cm}|}
+\hline
+\textbf{Source} & \textbf{Search query (titles and abstracts)} & \textbf{Limits} & \textbf{Date} & \textbf{Records} \\
+\hline
+OpenAlex & {\ttfamily\scriptsize ("artificial intelligence" OR "machine learning" OR "AI") AND (capability OR capabilities OR sensing OR seizing OR reconfiguring OR reconfiguration) AND ("competitive advantage" OR "competitive advantages" OR "firm performance" OR "organizational performance" OR "organisational performance" OR "competitive performance")} & Type article; language English; publication date from 1 January 2015 (upper filter value 31 December 2026, see note); no subject filter & 22 October 2026 & 1,807 \\ \hline
+Citation searching & Works cited by, or citing, the 121 studies eligible before the final language check, filtered with the AI block AND (capability block OR outcome block) & As above & 22 October 2026 & 678 new, not screened \\
+\hline
+\end{tabularx}
+\par\smallskip
+{\footnotesize\raggedright Note: The search was run on 22 October 2026, so it can only contain records available in OpenAlex on that date. The upper date filter was set to the end of 2026 so that articles already published online but dated to a later 2026 issue were not excluded; it does not extend the search beyond the search date.\par}
+\source{author's own work.}
+\end{table}
+
+The benchmark test retrieved \textcite{mikalef2021ai}, \textcite{chen2022} and \textcite{shao2026}. Applying a filter for business, management, decision sciences, economics and social sciences reduced the result to 1,188 records but excluded \textcite{chen2022}, which OpenAlex assigns to computer science; the filter was therefore not used.
